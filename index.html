@@ -3,48 +3,42 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CODY KAIN SPIN</title>
 <style>
 :root{--gold:#ffd76a;--bg:#080b16;--panel:#12182b;--muted:#aeb8d2}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at top,#22234b,#080b16 65%);color:#fff;font-family:Arial,sans-serif;min-height:100vh}
-header{padding:22px 16px;text-align:center;border-bottom:1px solid #ffffff19}
-.logo{font-size:clamp(25px,5vw,42px);font-weight:1000;letter-spacing:2px;color:var(--gold);text-shadow:0 0 25px #ffb52e66}
-header p{color:var(--muted);margin:8px 0 0}
-.wrap{max-width:1050px;margin:auto;padding:20px 14px}
+body{margin:0;background:radial-gradient(ellipse at top,#22234b,#080b16 65%);color:white;font-family:Arial,sans-serif;min-height:100vh}
+header{text-align:center;padding:24px 12px;border-bottom:1px solid #ffffff19}
+.logo{font-size:clamp(26px,5vw,42px);font-weight:900;letter-spacing:2px;color:var(--gold)}
+header p,.muted{color:var(--muted)}
+.wrap{max-width:1000px;margin:auto;padding:18px 12px}
 .notice{text-align:center;color:#ffdf8b;font-size:12px;margin-bottom:15px}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.card{background:linear-gradient(145deg,#1c2340,#101526);border:1px solid #ffffff16;border-radius:15px;padding:15px 8px;text-align:center}
-.card small{color:var(--muted);font-size:11px;font-weight:bold}
-.money{font-size:clamp(23px,4vw,34px);font-weight:900;color:var(--gold);margin:8px 0}
-.card p{margin:0;font-size:12px;color:#d3d8e8}
-.layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(250px,.75fr);gap:18px;margin-top:20px}
-.panel{background:#101629ed;border:1px solid #ffffff19;border-radius:20px;padding:20px;min-width:0}
-h2{font-size:19px;margin:0 0 16px}
-label{display:block;color:#d5d9e8;font-size:13px;margin:12px 0 7px}
-input,select,textarea{width:100%;padding:12px;background:#090e1d;color:white;border:1px solid #353e5c;border-radius:9px;font-size:15px}
-.wheelbox{position:relative;width:min(100%,370px);aspect-ratio:1;margin:12px auto 22px}
-.pointer{position:absolute;z-index:3;top:-5px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:17px solid transparent;border-right:17px solid transparent;border-top:36px solid white;filter:drop-shadow(0 2px 5px #000)}
-.wheel{width:100%;height:100%;border-radius:50%;border:7px solid #f9d875;box-shadow:0 0 0 5px #563c13,0 0 35px #ffbe4960;position:relative;overflow:hidden;background:conic-gradient(#ec3d64 0deg 45deg,#7137ce 45deg 90deg,#188fc5 90deg 135deg,#19a87e 135deg 180deg,#e7a52b 180deg 225deg,#e84e36 225deg 270deg,#414fc1 270deg 315deg,#bd368c 315deg 360deg);transition:transform 30s cubic-bezier(.08,.72,.08,1)}
-.wheel:after{content:"";position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(from 0deg,#ffffff55 0deg 1deg,transparent 1deg 45deg);pointer-events:none}
-.wlabel{position:absolute;left:50%;top:50%;width:46%;height:26px;margin-top:-13px;transform-origin:0 50%;display:flex;align-items:center;padding-left:24px;font-size:clamp(10px,2.7vw,14px);font-weight:900;text-shadow:0 1px 3px #000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hub{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);width:22%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff5cb,#d6a32e 65%,#6f4711);border:5px solid #fff0ae;box-shadow:0 0 18px #0008;display:grid;place-items:center;color:#30200a;font-size:11px;font-weight:1000;text-align:center}
-button{border:0;border-radius:10px;padding:13px 16px;font-size:14px;font-weight:800;cursor:pointer;transition:.2s}
-button:disabled{opacity:.35;cursor:not-allowed;filter:blur(.2px)}
-.primary{background:linear-gradient(100deg,#ffe58c,#efa927);color:#251707;width:100%;box-shadow:0 5px 20px #e7a62c20}
-.secondary{background:#242e4b;color:white}
-.row{display:flex;gap:8px;align-items:center}
-.row>*{flex:1}
-.pill{display:inline-block;padding:6px 10px;border-radius:20px;background:#242c47;color:#e6eaff;font-size:11px;font-weight:bold}
-.status{text-align:center;color:var(--muted);font-size:13px;line-height:1.5;margin:12px 0}
-.result{display:none;background:linear-gradient(135deg,#34234b,#132c39);border:1px solid #ffd76a77;padding:18px;border-radius:14px;text-align:center;margin-top:12px}
-.result strong{display:block;color:var(--gold);font-size:26px;margin:9px 0}
-.history{margin-top:18px}
-.winner{padding:12px 0;border-bottom:1px solid #ffffff15;display:flex;justify-content:space-between;gap:10px;font-size:13px}
-.winner span:last-child{color:var(--gold);font-weight:bold}
-footer{text-align:center;color:#8791ad;padding:25px;font-size:12px}
-@media(max-width:680px){.cards{grid-template-columns:repeat(2,1fr)}.layout{grid-template-columns:1fr}.panel{padding:16px}.wheelbox{width:min(90%,340px)}}
+.card,.panel{background:linear-gradient(145deg,#1c2340,#101526);border:1px solid #ffffff19;border-radius:15px;padding:16px;margin-bottom:14px}
+.card{text-align:center}
+.money{font-size:30px;color:var(--gold);font-weight:900;margin:10px}
+.layout{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:16px}
+h2{font-size:19px;margin:0 0 14px}
+label{display:block;font-size:13px;margin:12px 0 6px;color:#d5d9e8}
+input,select{width:100%;padding:12px;background:#090e1d;color:white;border:1px solid #353e5c;border-radius:9px;font-size:15px}
+button{border:0;border-radius:9px;padding:12px 15px;font-weight:800;cursor:pointer;margin-top:10px}
+button:disabled{opacity:.45;cursor:not-allowed}
+.primary{background:linear-gradient(100deg,#ffe58c,#efa927);color:#251707;width:100%}
+.secondary{background:#283352;color:white}
+.danger{background:#622b3d;color:white}
+.wheelbox{position:relative;width:min(100%,350px);aspect-ratio:1;margin:25px auto}
+.pointer{position:absolute;z-index:3;top:-5px;left:50%;transform:translateX(-50%);border-left:16px solid transparent;border-right:16px solid transparent;border-top:34px solid white}
+.wheel{width:100%;height:100%;border-radius:50%;border:7px solid #f9d875;box-shadow:0 0 0 5px #563c13,0 0 30px #ffbe4960;background:conic-gradient(#ec3d64 0 45deg,#7137ce 45deg 90deg,#188fc5 90deg 135deg,#19a87e 135deg 180deg,#e7a52b 180deg 225deg,#e84e36 225deg 270deg,#414fc1 270deg 315deg,#bd368c 315deg);transition:transform 30s cubic-bezier(.08,.72,.08,1)}
+.hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:23%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff5cb,#d6a32e 65%,#6f4711);border:5px solid #fff0ae;display:grid;place-items:center;color:#30200a;font-size:11px;font-weight:900;text-align:center}
+.status{text-align:center;color:var(--muted);font-size:13px;line-height:1.5;margin:12px 0;overflow-wrap:anywhere}
+.result{display:none;background:#202c43;border:1px solid #ffd76a77;padding:16px;border-radius:12px;text-align:center;margin-top:12px}
+.result strong{display:block;color:var(--gold);font-size:25px;margin:9px}
+.row{display:flex;gap:8px}.row>*{flex:1;min-width:0}
+.item{padding:10px 0;border-bottom:1px solid #ffffff18;font-size:13px;overflow-wrap:anywhere}
+.hidden{display:none!important}
+footer{text-align:center;color:#8791ad;padding:20px;font-size:12px}
+@media(max-width:680px){.cards{grid-template-columns:repeat(2,1fr)}.layout{grid-template-columns:1fr}.card{padding:12px 5px}.money{font-size:25px}}
 </style>
 </head>
 <body>
@@ -52,152 +46,247 @@ footer{text-align:center;color:#8791ad;padding:25px;font-size:12px}
   <div class="logo">✦ CODY KAIN SPIN ✦</div>
   <p>Spin • Win • Celebrate</p>
 </header>
-
 <main class="wrap">
-  <div class="notice">DEMO PREVIEW — real accounts, schedules and prize results are not connected yet.</div>
-
+  <div class="notice" id="notice">Connect to your account to begin.</div>
   <section class="cards">
-    <div class="card"><small>DAILY 1ST PRIZE</small><div class="money">$30</div><p>One winner</p></div>
-    <div class="card"><small>DAILY 2ND PRIZE</small><div class="money">$20</div><p>One winner</p></div>
-    <div class="card"><small>DAILY 3RD PRIZE</small><div class="money">$10</div><p>One winner</p></div>
-    <div class="card"><small>WEEKLY JACKPOT</small><div class="money">$100</div><p>One winner</p></div>
+    <div class="card">DAILY 1ST<div class="money">$30</div><small>One winner</small></div>
+    <div class="card">DAILY 2ND<div class="money">$20</div><small>One winner</small></div>
+    <div class="card">DAILY 3RD<div class="money">$10</div><small>One winner</small></div>
+    <div class="card">WEEKLY<div class="money">$100</div><small>One winner</small></div>
   </section>
 
-  <section class="layout">
+  <section class="panel" id="loginPanel">
+    <h2>🔐 Player / Admin Login</h2>
+    <label for="loginId">Player ID</label>
+    <input id="loginId" autocomplete="username" placeholder="Enter your assigned ID">
+    <label for="loginPassword">Password</label>
+    <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Enter password">
+    <button class="primary" id="loginBtn">LOGIN</button>
+    <div class="status" id="loginStatus">Use the ID and password provided by your admin.</div>
+  </section>
+
+  <section id="appPanel" class="hidden">
     <div class="panel">
       <div class="row">
-        <h2>🎡 Prize Wheel</h2>
-        <span class="pill" id="gameBadge">DAILY 1ST</span>
-      </div>
-
-      <label for="game">Choose game</label>
-      <select id="game">
-        <option value="d1">Daily — 1st Prize ($30)</option>
-        <option value="d2">Daily — 2nd Prize ($20)</option>
-        <option value="d3">Daily — 3rd Prize ($10)</option>
-        <option value="weekly">Weekly Jackpot ($100)</option>
-      </select>
-
-      <div class="wheelbox">
-        <div class="pointer"></div>
-        <div class="wheel" id="wheel"></div>
-        <div class="hub">CODY<br>KAIN</div>
-      </div>
-
-      <div class="status" id="status">Enter a demo player name to preview the wheel.</div>
-      <button class="primary" id="spinBtn">✦ SPIN THE WHEEL ✦</button>
-
-      <div class="result" id="result">
-        <div id="resultTitle">🎉 CONGRATULATIONS!</div>
-        <strong id="winnerName"></strong>
-        <div id="prizeText"></div>
-        <p id="resultMessage"></p>
+        <div><h2>🎮 Welcome</h2><div id="who" class="muted"></div></div>
+        <button id="logoutBtn" class="secondary">LOG OUT</button>
       </div>
     </div>
-
-    <aside>
+    <div class="layout">
       <div class="panel">
-        <h2>👤 Player Login Preview</h2>
-        <label for="playerName">Player name</label>
-        <input id="playerName" maxlength="28" placeholder="Enter your player name">
-        <label for="playerId">Player ID</label>
-        <input id="playerId" placeholder="e.g. CK1001">
-        <p class="status">This is a visual demo only. These fields do not authenticate a real player.</p>
-        <button class="secondary" id="previewBtn" style="width:100%">Preview Player Name</button>
+        <h2>🎡 Prize Wheel</h2>
+        <label for="game">Choose game</label>
+        <select id="game">
+          <option value="d1">Daily — 1st Prize ($30)</option>
+          <option value="d2">Daily — 2nd Prize ($20)</option>
+          <option value="d3">Daily — 3rd Prize ($10)</option>
+          <option value="weekly">Weekly Jackpot ($100)</option>
+        </select>
+        <div class="wheelbox"><div class="pointer"></div><div class="wheel" id="wheel"></div><div class="hub">CODY<br>KAIN</div></div>
+        <div class="status" id="spinStatus">Choose a game.</div>
+        <button class="primary" id="spinBtn">✦ SPIN THE WHEEL ✦</button>
+        <div class="result" id="result">
+          <div id="resultTitle"></div>
+          <strong id="resultPrize"></strong>
+          <div id="resultMessage"></div>
+        </div>
       </div>
-
-      <div class="panel history">
-        <h2>🏆 Winner List Preview</h2>
-        <div id="history"><div class="status">No demo results yet.</div></div>
-      </div>
-    </aside>
+      <aside>
+        <div class="panel">
+          <h2>🏆 Winner List</h2>
+          <button class="secondary" id="refreshWinners">REFRESH WINNERS</button>
+          <div id="winners" class="status">Log in to load winners.</div>
+        </div>
+        <div class="panel hidden" id="adminPanel">
+          <h2>🛡️ Admin Dashboard</h2>
+          <h3>Add Player</h3>
+          <label for="newId">Player ID</label><input id="newId" placeholder="e.g. CK1001">
+          <label for="newName">Player name</label><input id="newName" placeholder="Player name">
+          <label for="newPassword">Temporary password</label><input id="newPassword" type="password" placeholder="At least 8 characters">
+          <button class="primary" id="addPlayerBtn">CREATE PLAYER</button>
+          <div id="adminStatus" class="status"></div>
+          <hr>
+          <h3>Start a Draw</h3>
+          <p class="muted">Only start a new draw when the previous draw has ended and the winner records have been checked.</p>
+          <div class="row">
+            <button class="secondary" id="dailyBtn">OPEN DAILY DRAW</button>
+            <button class="secondary" id="weeklyBtn">OPEN WEEKLY DRAW</button>
+          </div>
+          <div id="drawStatus" class="status"></div>
+          <hr>
+          <h3>Player Accounts</h3>
+          <button class="secondary" id="refreshPlayers">REFRESH PLAYERS</button>
+          <div id="players" class="status"></div>
+        </div>
+      </aside>
+    </div>
   </section>
 </main>
-<footer>© CODY KAIN SPIN · Play fairly · Demo interface</footer>
-
+<footer>© CODY KAIN SPIN · Use only after testing and security review</footer>
 <script>
+const FUNCTION_URL="https://vrpmzvifpzlsulmzxvdc.supabase.co/functions/v1/cody-kain-spin";
+const PUBLISHABLE_KEY="sb_publishable_jon3lwQ_FMuPSnqvVNlMWw_W1o6agbn";
 const $=id=>document.getElementById(id);
-const wheel=$("wheel"), game=$("game"), spinBtn=$("spinBtn");
-const names=["CODY KAIN","PLAYER 02","PLAYER 03","PLAYER 04","PLAYER 05","PLAYER 06","PLAYER 07","PLAYER 08"];
-let rotation=0, busy=false;
-const prizes={
- d1:{label:"DAILY 1ST",amount:"$30",seconds:30},
- d2:{label:"DAILY 2ND",amount:"$20",seconds:30},
- d3:{label:"DAILY 3RD",amount:"$10",seconds:30},
- weekly:{label:"WEEKLY JACKPOT",amount:"$100",seconds:60}
-};
-function makeLabels(){
- wheel.innerHTML="";
- names.forEach((name,i)=>{
-  const el=document.createElement("div");
-  el.className="wlabel";
-  el.textContent=name;
-  el.style.transform=`rotate(${i*45+22.5}deg)`;
-  wheel.appendChild(el);
- });
+let token="",player=null,busy=false,rotation=0;
+
+async function api(action,extra={},needsLogin=true){
+  const headers={"Content-Type":"application/json","apikey":PUBLISHABLE_KEY};
+  const body={action,...extra};
+  if(needsLogin && token) body.token=token;
+  const response=await fetch(FUNCTION_URL,{method:"POST",headers,body:JSON.stringify(body)});
+  let data={};
+  try{data=await response.json()}catch{}
+  if(!response.ok) throw new Error(data.error||("Request failed ("+response.status+")"));
+  return data;
+}
+function setStatus(id,msg){$(id).textContent=msg}
+function showApp(){
+  $("loginPanel").classList.add("hidden");
+  $("appPanel").classList.remove("hidden");
+  $("who").textContent=(player.display_name||player.player_code)+" · "+player.role.toUpperCase();
+  $("adminPanel").classList.toggle("hidden",player.role!=="admin");
+  $("notice").textContent="Logged in. Spin results are requested from the server.";
+}
+async function login(){
+  $("loginBtn").disabled=true;
+  setStatus("loginStatus","Checking login...");
+  try{
+    const data=await api("login",{id:$("loginId").value.trim(),password:$("loginPassword").value},false);
+    token=data.token;player=data.player;
+    if(!token||!player) throw new Error("Login response missing player or session.");
+    showApp();
+    await refreshWinners();
+    if(player.role==="admin") await refreshPlayers();
+  }catch(e){setStatus("loginStatus",e.message||"Login failed.");}
+  finally{$("loginBtn").disabled=false;}
+}
+function logout(){
+  token="";player=null;
+  $("loginPanel").classList.remove("hidden");
+  $("appPanel").classList.add("hidden");
+  $("loginPassword").value="";
+  $("notice").textContent="Please log in.";
+}
+async function refreshWinners(){
+  $("winners").textContent="Loading winners...";
+  try{
+    const data=await api("winners");
+    const list=data.winners||[];
+    $("winners").replaceChildren();
+    if(!list.length){$("winners").textContent="No winners recorded yet.";return;}
+    list.forEach(w=>{
+      const row=document.createElement("div");row.className="item";
+      const name=w.ck_players?.display_name||w.ck_players?.player_code||"Player";
+      const type=w.ck_draws?.draw_type==="weekly"?"WEEKLY":"DAILY";
+      row.textContent=name+" · "+type+" · Position "+w.position+" · "+w.reward_points+" points";
+      $("winners").appendChild(row);
+    });
+  }catch(e){$("winners").textContent=e.message;}
+}
+async function refreshPlayers(){
+  $("players").textContent="Loading players...";
+  try{
+    const data=await api("players");
+    $("players").replaceChildren();
+    (data.players||[]).forEach(p=>{
+      const row=document.createElement("div");row.className="item";
+      const label=document.createElement("span");
+      label.textContent=p.display_name+" ("+p.player_code+") · "+(p.is_active?"Active":"Disabled")+" ";
+      row.appendChild(label);
+      if(p.role!=="admin"){
+        const btn=document.createElement("button");
+        btn.className="secondary";btn.textContent=p.is_active?"DISABLE":"ENABLE";
+        btn.onclick=async()=>{
+          btn.disabled=true;
+          try{await api("toggle_player",{player_id:p.id});await refreshPlayers();}
+          catch(e){setStatus("adminStatus",e.message);btn.disabled=false;}
+        };
+        row.appendChild(btn);
+      }
+      $("players").appendChild(row);
+    });
+    if(!(data.players||[]).length)$("players").textContent="No players found.";
+  }catch(e){$("players").textContent=e.message;}
+}
+async function addPlayer(){
+  $("addPlayerBtn").disabled=true;
+  try{
+    const data=await api("add_player",{id:$("newId").value.trim(),name:$("newName").value.trim(),password:$("newPassword").value});
+    setStatus("adminStatus","Player created: "+data.player.player_code);
+    $("newId").value="";$("newName").value="";$("newPassword").value="";
+    await refreshPlayers();
+  }catch(e){setStatus("adminStatus",e.message);}
+  finally{$("addPlayerBtn").disabled=false;}
+}
+async function openDraw(type){
+  const label=type==="weekly"?"weekly":"daily";
+  if(!confirm("Start a new "+label+" draw? Make sure the previous draw is finished."))return;
+  $("dailyBtn").disabled=true;$("weeklyBtn").disabled=true;
+  try{
+    const data=await api("reset_draw",{type});
+    setStatus("drawStatus","New "+label+" draw opened. Draw number: "+data.draw.draw_number);
+  }catch(e){setStatus("drawStatus",e.message);}
+  finally{$("dailyBtn").disabled=false;$("weeklyBtn").disabled=false;}
 }
 function say(text){
- if(!("speechSynthesis" in window)) return;
- speechSynthesis.cancel();
- const utterance=new SpeechSynthesisUtterance(text);
- utterance.rate=1.05;
- utterance.pitch=1.1;
- speechSynthesis.speak(utterance);
+  if(!("speechSynthesis" in window))return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);u.rate=1.05;u.pitch=1.1;speechSynthesis.speak(u);
 }
-function changeGame(){
- const p=prizes[game.value];
- $("gameBadge").textContent=p.label;
- $("status").textContent=`${p.label} · Prize ${p.amount} · Demo spin duration ${p.seconds} seconds`;
- $("result").style.display="none";
+async function spin(){
+  if(busy||!player)return;
+  const game=$("game").value;
+  const type=game==="weekly"?"weekly":"daily";
+  const position=game==="d1"?1:game==="d2"?2:game==="d3"?3:1;
+  const amount=game==="weekly"?"$100":game==="d1"?"$30":game==="d2"?"$20":"$10";
+  const seconds=game==="weekly"?60:30;
+  busy=true;$("spinBtn").disabled=true;$("game").disabled=true;
+  $("result").style.display="none";
+  setStatus("spinStatus","Contacting server...");
+  let outcome=null,error=null;
+  try{outcome=await api("spin",{type,position});}catch(e){error=e.message||"Spin failed.";}
+  if(error){
+    setStatus("spinStatus",error);
+    busy=false;$("spinBtn").disabled=false;$("game").disabled=false;
+    return;
+  }
+  if(outcome.error){
+    setStatus("spinStatus",outcome.error);
+    busy=false;$("spinBtn").disabled=false;$("game").disabled=false;
+    return;
+  }
+  setStatus("spinStatus","CODY KAIN... CODY KAIN... Good luck!");
+  say("Cody Kain! Cody Kain!");
+  rotation+=360*6+Math.floor(Math.random()*360);
+  $("wheel").style.transition=`transform ${seconds}s cubic-bezier(.08,.72,.08,1)`;
+  $("wheel").style.transform=`rotate(${rotation}deg)`;
+  setTimeout(async()=>{
+    $("result").style.display="block";
+    if(outcome.win){
+      $("resultTitle").textContent="🎉 CONGRATULATIONS!";
+      $("resultPrize").textContent=amount;
+      $("resultMessage").textContent="Server recorded a winner. Contact admin to verify the result.";
+      say("Congratulations! You are a recorded winner.");
+    }else{
+      $("resultTitle").textContent="BETTER LUCK NEXT TIME";
+      $("resultPrize").textContent="";
+      $("resultMessage").textContent=outcome.message||"No prize recorded for this attempt.";
+      say("Better luck next time.");
+    }
+    setStatus("spinStatus","Server response received. Check the winner list.");
+    await refreshWinners();
+    busy=false;$("spinBtn").disabled=false;$("game").disabled=false;
+  },seconds*1000);
 }
-game.addEventListener("change",changeGame);
-$("previewBtn").addEventListener("click",()=>{
- const name=$("playerName").value.trim();
- if(!name){alert("Please enter a player name.");return;}
- names[0]=name.toUpperCase();
- makeLabels();
- $("status").textContent=`Name preview updated: ${name}`;
-});
-spinBtn.addEventListener("click",()=>{
- if(busy)return;
- const player=$("playerName").value.trim();
- if(!player){alert("Please enter a demo player name first.");$("playerName").focus();return;}
- busy=true;
- spinBtn.disabled=true;
- game.disabled=true;
- $("result").style.display="none";
- const p=prizes[game.value];
- $("status").textContent="CODY KAIN... CODY KAIN... Good luck!";
- say("Cody Kain! Cody Kain!");
- const chosen=Math.floor(Math.random()*names.length);
- rotation+=360*6+(360-chosen*45-22.5);
- wheel.style.transition=`transform ${p.seconds}s cubic-bezier(.08,.72,.08,1)`;
- wheel.style.transform=`rotate(${rotation}deg)`;
- setTimeout(()=>{
-  const winner=names[chosen];
-  $("winnerName").textContent=winner;
-  $("prizeText").textContent="Prize: "+p.amount;
-  $("resultMessage").textContent="Demo result only — no real prize has been awarded.";
-  $("resultTitle").textContent="🎉 CONGRATULATIONS!";
-  $("result").style.display="block";
-  $("status").textContent="Demo spin complete.";
-  say("Congratulations! "+winner);
-  const row=document.createElement("div");
-  row.className="winner";
-  const left=document.createElement("span");
-  left.textContent=winner;
-  const right=document.createElement("span");
-  right.textContent=p.amount+" · "+p.label;
-  row.append(left,right);
-  if($("history").textContent.includes("No demo results"))$("history").innerHTML="";
-  $("history").prepend(row);
-  busy=false;
-  spinBtn.disabled=false;
-  game.disabled=false;
- },p.seconds*1000);
-});
-makeLabels();
-changeGame();
+$("loginBtn").addEventListener("click",login);
+$("loginPassword").addEventListener("keydown",e=>{if(e.key==="Enter")login()});
+$("logoutBtn").addEventListener("click",logout);
+$("refreshWinners").addEventListener("click",refreshWinners);
+$("refreshPlayers").addEventListener("click",refreshPlayers);
+$("addPlayerBtn").addEventListener("click",addPlayer);
+$("dailyBtn").addEventListener("click",()=>openDraw("daily"));
+$("weeklyBtn").addEventListener("click",()=>openDraw("weekly"));
+$("spinBtn").addEventListener("click",spin);
 </script>
 </body>
 </html>
