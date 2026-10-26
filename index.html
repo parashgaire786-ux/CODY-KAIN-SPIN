@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CODY KAIN SPIN</title>
+<style>
+:root{--gold:#ffd76a;--bg:#080b16;--panel:#12182b;--muted:#aeb8d2}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#22234b,#080b16 65%);color:#fff;font-family:Arial,sans-serif;min-height:100vh}
+header{padding:22px 16px;text-align:center;border-bottom:1px solid #ffffff19}
+.logo{font-size:clamp(25px,5vw,42px);font-weight:1000;letter-spacing:2px;color:var(--gold);text-shadow:0 0 25px #ffb52e66}
+header p{color:var(--muted);margin:8px 0 0}
+.wrap{max-width:1050px;margin:auto;padding:20px 14px}
+.notice{text-align:center;color:#ffdf8b;font-size:12px;margin-bottom:15px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.card{background:linear-gradient(145deg,#1c2340,#101526);border:1px solid #ffffff16;border-radius:15px;padding:15px 8px;text-align:center}
+.card small{color:var(--muted);font-size:11px;font-weight:bold}
+.money{font-size:clamp(23px,4vw,34px);font-weight:900;color:var(--gold);margin:8px 0}
+.card p{margin:0;font-size:12px;color:#d3d8e8}
+.layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(250px,.75fr);gap:18px;margin-top:20px}
+.panel{background:#101629ed;border:1px solid #ffffff19;border-radius:20px;padding:20px;min-width:0}
+h2{font-size:19px;margin:0 0 16px}
+label{display:block;color:#d5d9e8;font-size:13px;margin:12px 0 7px}
+input,select,textarea{width:100%;padding:12px;background:#090e1d;color:white;border:1px solid #353e5c;border-radius:9px;font-size:15px}
+.wheelbox{position:relative;width:min(100%,370px);aspect-ratio:1;margin:12px auto 22px}
+.pointer{position:absolute;z-index:3;top:-5px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:17px solid transparent;border-right:17px solid transparent;border-top:36px solid white;filter:drop-shadow(0 2px 5px #000)}
+.wheel{width:100%;height:100%;border-radius:50%;border:7px solid #f9d875;box-shadow:0 0 0 5px #563c13,0 0 35px #ffbe4960;position:relative;overflow:hidden;background:conic-gradient(#ec3d64 0deg 45deg,#7137ce 45deg 90deg,#188fc5 90deg 135deg,#19a87e 135deg 180deg,#e7a52b 180deg 225deg,#e84e36 225deg 270deg,#414fc1 270deg 315deg,#bd368c 315deg 360deg);transition:transform 30s cubic-bezier(.08,.72,.08,1)}
+.wheel:after{content:"";position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(from 0deg,#ffffff55 0deg 1deg,transparent 1deg 45deg);pointer-events:none}
+.wlabel{position:absolute;left:50%;top:50%;width:46%;height:26px;margin-top:-13px;transform-origin:0 50%;display:flex;align-items:center;padding-left:24px;font-size:clamp(10px,2.7vw,14px);font-weight:900;text-shadow:0 1px 3px #000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hub{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);width:22%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff5cb,#d6a32e 65%,#6f4711);border:5px solid #fff0ae;box-shadow:0 0 18px #0008;display:grid;place-items:center;color:#30200a;font-size:11px;font-weight:1000;text-align:center}
+button{border:0;border-radius:10px;padding:13px 16px;font-size:14px;font-weight:800;cursor:pointer;transition:.2s}
+button:disabled{opacity:.35;cursor:not-allowed;filter:blur(.2px)}
+.primary{background:linear-gradient(100deg,#ffe58c,#efa927);color:#251707;width:100%;box-shadow:0 5px 20px #e7a62c20}
+.secondary{background:#242e4b;color:white}
+.row{display:flex;gap:8px;align-items:center}
+.row>*{flex:1}
+.pill{display:inline-block;padding:6px 10px;border-radius:20px;background:#242c47;color:#e6eaff;font-size:11px;font-weight:bold}
+.status{text-align:center;color:var(--muted);font-size:13px;line-height:1.5;margin:12px 0}
+.result{display:none;background:linear-gradient(135deg,#34234b,#132c39);border:1px solid #ffd76a77;padding:18px;border-radius:14px;text-align:center;margin-top:12px}
+.result strong{display:block;color:var(--gold);font-size:26px;margin:9px 0}
+.history{margin-top:18px}
+.winner{padding:12px 0;border-bottom:1px solid #ffffff15;display:flex;justify-content:space-between;gap:10px;font-size:13px}
+.winner span:last-child{color:var(--gold);font-weight:bold}
+footer{text-align:center;color:#8791ad;padding:25px;font-size:12px}
+@media(max-width:680px){.cards{grid-template-columns:repeat(2,1fr)}.layout{grid-template-columns:1fr}.panel{padding:16px}.wheelbox{width:min(90%,340px)}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">✦ CODY KAIN SPIN ✦</div>
+  <p>Spin • Win • Celebrate</p>
+</header>
+
+<main class="wrap">
+  <div class="notice">DEMO PREVIEW — real accounts, schedules and prize results are not connected yet.</div>
+
+  <section class="cards">
+    <div class="card"><small>DAILY 1ST PRIZE</small><div class="money">$30</div><p>One winner</p></div>
+    <div class="card"><small>DAILY 2ND PRIZE</small><div class="money">$20</div><p>One winner</p></div>
+    <div class="card"><small>DAILY 3RD PRIZE</small><div class="money">$10</div><p>One winner</p></div>
+    <div class="card"><small>WEEKLY JACKPOT</small><div class="money">$100</div><p>One winner</p></div>
+  </section>
+
+  <section class="layout">
+    <div class="panel">
+      <div class="row">
+        <h2>🎡 Prize Wheel</h2>
+        <span class="pill" id="gameBadge">DAILY 1ST</span>
+      </div>
+
+      <label for="game">Choose game</label>
+      <select id="game">
+        <option value="d1">Daily — 1st Prize ($30)</option>
+        <option value="d2">Daily — 2nd Prize ($20)</option>
+        <option value="d3">Daily — 3rd Prize ($10)</option>
+        <option value="weekly">Weekly Jackpot ($100)</option>
+      </select>
+
+      <div class="wheelbox">
+        <div class="pointer"></div>
+        <div class="wheel" id="wheel"></div>
+        <div class="hub">CODY<br>KAIN</div>
+      </div>
+
+      <div class="status" id="status">Enter a demo player name to preview the wheel.</div>
+      <button class="primary" id="spinBtn">✦ SPIN THE WHEEL ✦</button>
+
+      <div class="result" id="result">
+        <div id="resultTitle">🎉 CONGRATULATIONS!</div>
+        <strong id="winnerName"></strong>
+        <div id="prizeText"></div>
+        <p id="resultMessage"></p>
+      </div>
+    </div>
+
+    <aside>
+      <div class="panel">
+        <h2>👤 Player Login Preview</h2>
+        <label for="playerName">Player name</label>
+        <input id="playerName" maxlength="28" placeholder="Enter your player name">
+        <label for="playerId">Player ID</label>
+        <input id="playerId" placeholder="e.g. CK1001">
+        <p class="status">This is a visual demo only. These fields do not authenticate a real player.</p>
+        <button class="secondary" id="previewBtn" style="width:100%">Preview Player Name</button>
+      </div>
+
+      <div class="panel history">
+        <h2>🏆 Winner List Preview</h2>
+        <div id="history"><div class="status">No demo results yet.</div></div>
+      </div>
+    </aside>
+  </section>
+</main>
+<footer>© CODY KAIN SPIN · Play fairly · Demo interface</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const wheel=$("wheel"), game=$("game"), spinBtn=$("spinBtn");
+const names=["CODY KAIN","PLAYER 02","PLAYER 03","PLAYER 04","PLAYER 05","PLAYER 06","PLAYER 07","PLAYER 08"];
+let rotation=0, busy=false;
+const prizes={
+ d1:{label:"DAILY 1ST",amount:"$30",seconds:30},
+ d2:{label:"DAILY 2ND",amount:"$20",seconds:30},
+ d3:{label:"DAILY 3RD",amount:"$10",seconds:30},
+ weekly:{label:"WEEKLY JACKPOT",amount:"$100",seconds:60}
+};
+function makeLabels(){
+ wheel.innerHTML="";
+ names.forEach((name,i)=>{
+  const el=document.createElement("div");
+  el.className="wlabel";
+  el.textContent=name;
+  el.style.transform=`rotate(${i*45+22.5}deg)`;
+  wheel.appendChild(el);
+ });
+}
+function say(text){
+ if(!("speechSynthesis" in window)) return;
+ speechSynthesis.cancel();
+ const utterance=new SpeechSynthesisUtterance(text);
+ utterance.rate=1.05;
+ utterance.pitch=1.1;
+ speechSynthesis.speak(utterance);
+}
+function changeGame(){
+ const p=prizes[game.value];
+ $("gameBadge").textContent=p.label;
+ $("status").textContent=`${p.label} · Prize ${p.amount} · Demo spin duration ${p.seconds} seconds`;
+ $("result").style.display="none";
+}
+game.addEventListener("change",changeGame);
+$("previewBtn").addEventListener("click",()=>{
+ const name=$("playerName").value.trim();
+ if(!name){alert("Please enter a player name.");return;}
+ names[0]=name.toUpperCase();
+ makeLabels();
+ $("status").textContent=`Name preview updated: ${name}`;
+});
+spinBtn.addEventListener("click",()=>{
+ if(busy)return;
+ const player=$("playerName").value.trim();
+ if(!player){alert("Please enter a demo player name first.");$("playerName").focus();return;}
+ busy=true;
+ spinBtn.disabled=true;
+ game.disabled=true;
+ $("result").style.display="none";
+ const p=prizes[game.value];
+ $("status").textContent="CODY KAIN... CODY KAIN... Good luck!";
+ say("Cody Kain! Cody Kain!");
+ const chosen=Math.floor(Math.random()*names.length);
+ rotation+=360*6+(360-chosen*45-22.5);
+ wheel.style.transition=`transform ${p.seconds}s cubic-bezier(.08,.72,.08,1)`;
+ wheel.style.transform=`rotate(${rotation}deg)`;
+ setTimeout(()=>{
+  const winner=names[chosen];
+  $("winnerName").textContent=winner;
+  $("prizeText").textContent="Prize: "+p.amount;
+  $("resultMessage").textContent="Demo result only — no real prize has been awarded.";
+  $("resultTitle").textContent="🎉 CONGRATULATIONS!";
+  $("result").style.display="block";
+  $("status").textContent="Demo spin complete.";
+  say("Congratulations! "+winner);
+  const row=document.createElement("div");
+  row.className="winner";
+  const left=document.createElement("span");
+  left.textContent=winner;
+  const right=document.createElement("span");
+  right.textContent=p.amount+" · "+p.label;
+  row.append(left,right);
+  if($("history").textContent.includes("No demo results"))$("history").innerHTML="";
+  $("history").prepend(row);
+  busy=false;
+  spinBtn.disabled=false;
+  game.disabled=false;
+ },p.seconds*1000);
+});
+makeLabels();
+changeGame();
+</script>
+</body>
+</html>
