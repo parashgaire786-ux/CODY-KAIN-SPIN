@@ -1,292 +1,2031 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CODY KAIN SPIN</title>
+
 <style>
-:root{--gold:#ffd76a;--bg:#080b16;--panel:#12182b;--muted:#aeb8d2}
+:root{
+  --gold:#ffd76a;
+  --bg:#080b16;
+  --panel:#12182b;
+  --muted:#aeb8d2;
+  --green:#55e69a;
+  --red:#ff718b;
+}
+
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at top,#22234b,#080b16 65%);color:white;font-family:Arial,sans-serif;min-height:100vh}
-header{text-align:center;padding:24px 12px;border-bottom:1px solid #ffffff19}
-.logo{font-size:clamp(26px,5vw,42px);font-weight:900;letter-spacing:2px;color:var(--gold)}
-header p,.muted{color:var(--muted)}
-.wrap{max-width:1000px;margin:auto;padding:18px 12px}
-.notice{text-align:center;color:#ffdf8b;font-size:12px;margin-bottom:15px}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.card,.panel{background:linear-gradient(145deg,#1c2340,#101526);border:1px solid #ffffff19;border-radius:15px;padding:16px;margin-bottom:14px}
-.card{text-align:center}
-.money{font-size:30px;color:var(--gold);font-weight:900;margin:10px}
-.layout{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:16px}
-h2{font-size:19px;margin:0 0 14px}
-label{display:block;font-size:13px;margin:12px 0 6px;color:#d5d9e8}
-input,select{width:100%;padding:12px;background:#090e1d;color:white;border:1px solid #353e5c;border-radius:9px;font-size:15px}
-button{border:0;border-radius:9px;padding:12px 15px;font-weight:800;cursor:pointer;margin-top:10px}
-button:disabled{opacity:.45;cursor:not-allowed}
-.primary{background:linear-gradient(100deg,#ffe58c,#efa927);color:#251707;width:100%}
-.secondary{background:#283352;color:white}
-.danger{background:#622b3d;color:white}
-.wheelbox{position:relative;width:min(100%,350px);aspect-ratio:1;margin:25px auto}
-.pointer{position:absolute;z-index:3;top:-5px;left:50%;transform:translateX(-50%);border-left:16px solid transparent;border-right:16px solid transparent;border-top:34px solid white}
-.wheel{width:100%;height:100%;border-radius:50%;border:7px solid #f9d875;box-shadow:0 0 0 5px #563c13,0 0 30px #ffbe4960;background:conic-gradient(#ec3d64 0 45deg,#7137ce 45deg 90deg,#188fc5 90deg 135deg,#19a87e 135deg 180deg,#e7a52b 180deg 225deg,#e84e36 225deg 270deg,#414fc1 270deg 315deg,#bd368c 315deg);transition:transform 30s cubic-bezier(.08,.72,.08,1)}
-.hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:23%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff5cb,#d6a32e 65%,#6f4711);border:5px solid #fff0ae;display:grid;place-items:center;color:#30200a;font-size:11px;font-weight:900;text-align:center}
-.status{text-align:center;color:var(--muted);font-size:13px;line-height:1.5;margin:12px 0;overflow-wrap:anywhere}
-.result{display:none;background:#202c43;border:1px solid #ffd76a77;padding:16px;border-radius:12px;text-align:center;margin-top:12px}
-.result strong{display:block;color:var(--gold);font-size:25px;margin:9px}
-.row{display:flex;gap:8px}.row>*{flex:1;min-width:0}
-.item{padding:10px 0;border-bottom:1px solid #ffffff18;font-size:13px;overflow-wrap:anywhere}
-.hidden{display:none!important}
-footer{text-align:center;color:#8791ad;padding:20px;font-size:12px}
-@media(max-width:680px){.cards{grid-template-columns:repeat(2,1fr)}.layout{grid-template-columns:1fr}.card{padding:12px 5px}.money{font-size:25px}}
+
+body{
+  margin:0;
+  background:
+    radial-gradient(ellipse at top,#22234b,#080b16 65%);
+  color:#fff;
+  font-family:Arial,sans-serif;
+  min-height:100vh;
+}
+
+header{
+  text-align:center;
+  padding:24px 12px;
+  border-bottom:1px solid #ffffff19;
+}
+
+.logo{
+  font-size:clamp(26px,5vw,42px);
+  font-weight:900;
+  letter-spacing:2px;
+  color:var(--gold);
+  text-shadow:0 0 25px #ffb52e66;
+}
+
+header p{
+  color:var(--muted);
+  margin:8px 0 0;
+}
+
+.wrap{
+  max-width:1100px;
+  margin:auto;
+  padding:18px 12px;
+}
+
+.notice{
+  text-align:center;
+  color:#ffdf8b;
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.card,.panel{
+  background:linear-gradient(145deg,#1c2340,#101526);
+  border:1px solid #ffffff19;
+  border-radius:15px;
+  padding:16px;
+  margin-bottom:14px;
+}
+
+.card{
+  text-align:center;
+}
+
+.money{
+  font-size:30px;
+  color:var(--gold);
+  font-weight:900;
+  margin:10px;
+}
+
+.layout{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:16px;
+  margin-top:16px;
+}
+
+h2{
+  font-size:19px;
+  margin:0 0 14px;
+}
+
+h3{
+  margin:16px 0 8px;
+  font-size:15px;
+}
+
+label{
+  display:block;
+  font-size:13px;
+  margin:12px 0 6px;
+  color:#d5d9e8;
+}
+
+input,select{
+  width:100%;
+  padding:12px;
+  background:#090e1d;
+  color:white;
+  border:1px solid #353e5c;
+  border-radius:9px;
+  font-size:15px;
+}
+
+button{
+  border:0;
+  border-radius:9px;
+  padding:12px 15px;
+  font-weight:800;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+button:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+.primary{
+  background:linear-gradient(100deg,#ffe58c,#efa927);
+  color:#251707;
+  width:100%;
+}
+
+.secondary{
+  background:#283352;
+  color:white;
+}
+
+.danger{
+  background:#622b3d;
+  color:white;
+}
+
+.success{
+  background:#205b45;
+  color:white;
+}
+
+.row{
+  display:flex;
+  gap:8px;
+}
+
+.row>*{
+  flex:1;
+  min-width:0;
+}
+
+.status{
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.5;
+  margin:12px 0;
+  overflow-wrap:anywhere;
+}
+
+.good{
+  color:var(--green);
+}
+
+.bad{
+  color:var(--red);
+}
+
+.hidden{
+  display:none!important;
+}
+
+.wheelbox{
+  position:relative;
+  width:min(100%,350px);
+  aspect-ratio:1;
+  margin:25px auto;
+}
+
+.pointer{
+  position:absolute;
+  z-index:3;
+  top:-5px;
+  left:50%;
+  transform:translateX(-50%);
+  width:0;
+  height:0;
+  border-left:16px solid transparent;
+  border-right:16px solid transparent;
+  border-top:34px solid white;
+  filter:drop-shadow(0 2px 4px #000);
+}
+
+.wheel{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  border:7px solid #f9d875;
+  box-shadow:
+    0 0 0 5px #563c13,
+    0 0 30px #ffbe4960;
+
+  background:
+    conic-gradient(
+      #ec3d64 0 45deg,
+      #7137ce 45deg 90deg,
+      #188fc5 90deg 135deg,
+      #19a87e 135deg 180deg,
+      #e7a52b 180deg 225deg,
+      #e84e36 225deg 270deg,
+      #414fc1 270deg 315deg,
+      #bd368c 315deg
+    );
+
+  transition:
+    transform 8s cubic-bezier(.08,.72,.08,1);
+
+  position:relative;
+  overflow:hidden;
+}
+
+.wheel:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  background:
+    repeating-conic-gradient(
+      from 0deg,
+      #ffffff55 0deg 1deg,
+      transparent 1deg 45deg
+    );
+  pointer-events:none;
+}
+
+.wlabel{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:46%;
+  height:26px;
+  margin-top:-13px;
+  transform-origin:0 50%;
+  display:flex;
+  align-items:center;
+  padding-left:24px;
+  font-size:clamp(9px,2.5vw,13px);
+  font-weight:900;
+  text-shadow:0 1px 3px #000;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.hub{
+  position:absolute;
+  z-index:2;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:23%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:
+    radial-gradient(circle,#fff5cb,#d6a32e 65%,#6f4711);
+  border:5px solid #fff0ae;
+  box-shadow:0 0 18px #0008;
+  display:grid;
+  place-items:center;
+  color:#30200a;
+  font-size:11px;
+  font-weight:900;
+  text-align:center;
+}
+
+.result{
+  display:none;
+  background:#202c43;
+  border:1px solid #ffd76a77;
+  padding:16px;
+  border-radius:12px;
+  text-align:center;
+  margin-top:12px;
+}
+
+.result strong{
+  display:block;
+  color:var(--gold);
+  font-size:28px;
+  margin:9px;
+}
+
+.item{
+  padding:10px 0;
+  border-bottom:1px solid #ffffff18;
+  font-size:13px;
+  overflow-wrap:anywhere;
+}
+
+.player-check{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:9px;
+  margin:5px 0;
+  background:#090e1d;
+  border:1px solid #ffffff12;
+  border-radius:8px;
+}
+
+.player-check input{
+  width:auto;
+}
+
+.winner-box{
+  border:1px solid #ffffff15;
+  border-radius:10px;
+  padding:10px;
+  margin-top:10px;
+}
+
+.winner-box h4{
+  margin:0 0 8px;
+  color:var(--gold);
+}
+
+hr{
+  border:0;
+  border-top:1px solid #ffffff18;
+  margin:20px 0;
+}
+
+footer{
+  text-align:center;
+  color:#8791ad;
+  padding:20px;
+  font-size:12px;
+}
+
+@media(max-width:680px){
+  .cards{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .layout{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:12px 5px;
+  }
+
+  .money{
+    font-size:25px;
+  }
+
+  .row{
+    flex-direction:column;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <header>
   <div class="logo">✦ CODY KAIN SPIN ✦</div>
   <p>Spin • Win • Celebrate</p>
 </header>
+
 <main class="wrap">
-  <div class="notice" id="notice">Connect to your account to begin.</div>
-  <section class="cards">
-    <div class="card">DAILY 1ST<div class="money">$30</div><small>One winner</small></div>
-    <div class="card">DAILY 2ND<div class="money">$20</div><small>One winner</small></div>
-    <div class="card">DAILY 3RD<div class="money">$10</div><small>One winner</small></div>
-    <div class="card">WEEKLY<div class="money">$100</div><small>One winner</small></div>
-  </section>
 
-  <section class="panel" id="loginPanel">
-    <h2>🔐 Player / Admin Login</h2>
-    <label for="loginId">Player ID</label>
-    <input id="loginId" autocomplete="username" placeholder="Enter your assigned ID">
-    <label for="loginPassword">Password</label>
-    <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Enter password">
-    <button class="primary" id="loginBtn">LOGIN</button>
-    <div class="status" id="loginStatus">Use the ID and password provided by your admin.</div>
-  </section>
+<div class="notice" id="notice">
+  Connect to your account to begin.
+</div>
 
-  <section id="appPanel" class="hidden">
-    <div class="panel">
-      <div class="row">
-        <div><h2>🎮 Welcome</h2><div id="who" class="muted"></div></div>
-        <button id="logoutBtn" class="secondary">LOG OUT</button>
-      </div>
-    </div>
-    <div class="layout">
-      <div class="panel">
-        <h2>🎡 Prize Wheel</h2>
-        <label for="game">Choose game</label>
-        <select id="game">
-          <option value="d1">Daily — 1st Prize ($30)</option>
-          <option value="d2">Daily — 2nd Prize ($20)</option>
-          <option value="d3">Daily — 3rd Prize ($10)</option>
-          <option value="weekly">Weekly Jackpot ($100)</option>
-        </select>
-        <div class="wheelbox"><div class="pointer"></div><div class="wheel" id="wheel"></div><div class="hub">CODY<br>KAIN</div></div>
-        <div class="status" id="spinStatus">Choose a game.</div>
-        <button class="primary" id="spinBtn">✦ SPIN THE WHEEL ✦</button>
-        <div class="result" id="result">
-          <div id="resultTitle"></div>
-          <strong id="resultPrize"></strong>
-          <div id="resultMessage"></div>
-        </div>
-      </div>
-      <aside>
-        <div class="panel">
-          <h2>🏆 Winner List</h2>
-          <button class="secondary" id="refreshWinners">REFRESH WINNERS</button>
-          <div id="winners" class="status">Log in to load winners.</div>
-        </div>
-        <div class="panel hidden" id="adminPanel">
-          <h2>🛡️ Admin Dashboard</h2>
-          <h3>Add Player</h3>
-          <label for="newId">Player ID</label><input id="newId" placeholder="e.g. CK1001">
-          <label for="newName">Player name</label><input id="newName" placeholder="Player name">
-          <label for="newPassword">Temporary password</label><input id="newPassword" type="password" placeholder="At least 8 characters">
-          <button class="primary" id="addPlayerBtn">CREATE PLAYER</button>
-          <div id="adminStatus" class="status"></div>
-          <hr>
-          <h3>Start a Draw</h3>
-          <p class="muted">Only start a new draw when the previous draw has ended and the winner records have been checked.</p>
-          <div class="row">
-            <button class="secondary" id="dailyBtn">OPEN DAILY DRAW</button>
-            <button class="secondary" id="weeklyBtn">OPEN WEEKLY DRAW</button>
-          </div>
-          <div id="drawStatus" class="status"></div>
-          <hr>
-          <h3>Player Accounts</h3>
-          <button class="secondary" id="refreshPlayers">REFRESH PLAYERS</button>
-          <div id="players" class="status"></div>
-        </div>
-      </aside>
-    </div>
-  </section>
+<section class="cards">
+
+<div class="card">
+  DAILY 1ST
+  <div class="money" id="card1">$30</div>
+  <small>One winner</small>
+</div>
+
+<div class="card">
+  DAILY 2ND
+  <div class="money" id="card2">$20</div>
+  <small>One winner</small>
+</div>
+
+<div class="card">
+  DAILY 3RD
+  <div class="money" id="card3">$10</div>
+  <small>One winner</small>
+</div>
+
+<div class="card">
+  WEEKLY
+  <div class="money" id="cardWeekly">$100</div>
+  <small>One winner</small>
+</div>
+
+</section>
+
+
+<!-- LOGIN -->
+
+<section class="panel" id="loginPanel">
+
+<h2>🔐 Player / Admin Login</h2>
+
+<label>Player ID</label>
+<input
+  id="loginId"
+  autocomplete="username"
+  placeholder="Enter your assigned ID"
+>
+
+<label>Password</label>
+<input
+  id="loginPassword"
+  type="password"
+  autocomplete="current-password"
+  placeholder="Enter password"
+>
+
+<button class="primary" id="loginBtn">
+  LOGIN
+</button>
+
+<div class="status" id="loginStatus">
+  Use the ID and password provided by your admin.
+</div>
+
+</section>
+
+
+<!-- APPLICATION -->
+
+<section id="appPanel" class="hidden">
+
+<div class="panel">
+
+<div class="row">
+
+<div>
+<h2>🎮 Welcome</h2>
+<div id="who" class="muted"></div>
+</div>
+
+<button id="logoutBtn" class="secondary">
+LOG OUT
+</button>
+
+</div>
+
+</div>
+
+
+<div class="layout">
+
+<!-- WHEEL -->
+
+<div class="panel">
+
+<h2>🎡 Prize Wheel</h2>
+
+<label>Choose game</label>
+
+<select id="game">
+
+<option value="d1">
+Daily — 1st Prize ($30)
+</option>
+
+<option value="d2">
+Daily — 2nd Prize ($20)
+</option>
+
+<option value="d3">
+Daily — 3rd Prize ($10)
+</option>
+
+<option value="weekly">
+Weekly Jackpot ($100)
+</option>
+
+</select>
+
+
+<div class="wheelbox">
+
+<div class="pointer"></div>
+
+<div class="wheel" id="wheel"></div>
+
+<div class="hub">
+CODY<br>KAIN
+</div>
+
+</div>
+
+
+<div class="status" id="spinStatus">
+Choose a game.
+</div>
+
+<button class="primary" id="spinBtn">
+✦ SPIN THE WHEEL ✦
+</button>
+
+
+<div class="result" id="result">
+
+<div id="resultTitle"></div>
+
+<strong id="resultPrize"></strong>
+
+<div id="resultMessage"></div>
+
+</div>
+
+</div>
+
+
+<!-- RIGHT SIDE -->
+
+<aside>
+
+<!-- WINNERS -->
+
+<div class="panel">
+
+<h2>🏆 Winner History</h2>
+
+<button class="secondary" id="refreshWinners">
+REFRESH WINNERS
+</button>
+
+<div id="winners" class="status">
+Loading...
+</div>
+
+</div>
+
+
+<!-- ADMIN -->
+
+<div class="panel hidden" id="adminPanel">
+
+<h2>🛡️ ADMIN DASHBOARD</h2>
+
+
+<!-- PLAYER CREATE -->
+
+<h3>👤 Add Player</h3>
+
+<label>Player ID</label>
+<input
+  id="newId"
+  placeholder="e.g. CK1001"
+>
+
+<label>Player Name</label>
+<input
+  id="newName"
+  placeholder="Player name"
+>
+
+<label>Password</label>
+<input
+  id="newPassword"
+  type="password"
+  placeholder="At least 8 characters"
+>
+
+<button class="primary" id="addPlayerBtn">
+CREATE PLAYER
+</button>
+
+<div id="adminStatus" class="status"></div>
+
+
+<hr>
+
+
+<!-- DRAW SETTINGS -->
+
+<h3>⚙️ Daily Draw Settings</h3>
+
+<label>Daily Start Time</label>
+<input id="dailyStart" type="datetime-local">
+
+<label>Daily End Time</label>
+<input id="dailyEnd" type="datetime-local">
+
+<label>Daily 1st Reward</label>
+<input id="dailyReward1" type="number" value="30">
+
+<label>Daily 2nd Reward</label>
+<input id="dailyReward2" type="number" value="20">
+
+<label>Daily 3rd Reward</label>
+<input id="dailyReward3" type="number" value="10">
+
+<label class="player-check">
+<input type="checkbox" id="dailyEnabled" checked>
+Daily draw enabled
+</label>
+
+
+<h3>🎡 Daily Players</h3>
+
+<div id="dailyPlayers">
+Loading players...
+</div>
+
+<button class="primary" id="saveDailyBtn">
+SAVE DAILY SETTINGS
+</button>
+
+
+<hr>
+
+
+<!-- WEEKLY SETTINGS -->
+
+<h3>🏆 Weekly Draw Settings</h3>
+
+<label>Weekly Start Time</label>
+<input id="weeklyStart" type="datetime-local">
+
+<label>Weekly End Time</label>
+<input id="weeklyEnd" type="datetime-local">
+
+<label>Weekly Reward</label>
+<input id="weeklyReward" type="number" value="100">
+
+<label class="player-check">
+<input type="checkbox" id="weeklyEnabled" checked>
+Weekly draw enabled
+</label>
+
+
+<h3>🎡 Weekly Players</h3>
+
+<div id="weeklyPlayers">
+Loading players...
+</div>
+
+<button class="primary" id="saveWeeklyBtn">
+SAVE WEEKLY SETTINGS
+</button>
+
+
+<hr>
+
+
+<!-- OPEN CLOSE -->
+
+<h3>🎯 Draw Control</h3>
+
+<div class="row">
+
+<button class="secondary" id="dailyBtn">
+OPEN DAILY
+</button>
+
+<button class="secondary" id="weeklyBtn">
+OPEN WEEKLY
+</button>
+
+</div>
+
+<div class="row">
+
+<button class="danger" id="closeDailyBtn">
+CLOSE DAILY
+</button>
+
+<button class="danger" id="closeWeeklyBtn">
+CLOSE WEEKLY
+</button>
+
+</div>
+
+<div id="drawStatus" class="status"></div>
+
+
+<hr>
+
+
+<!-- PLAYER ACCOUNTS -->
+
+<h3>👥 Player Accounts</h3>
+
+<button class="secondary" id="refreshPlayers">
+REFRESH PLAYERS
+</button>
+
+<div id="players" class="status"></div>
+
+
+<hr>
+
+
+<!-- WINNER SUMMARY -->
+
+<h3>🏆 Separate Winner Results</h3>
+
+<button class="secondary" id="refreshSummary">
+REFRESH WINNER RESULTS
+</button>
+
+<div id="summary">
+
+<div class="winner-box">
+<h4>🥇 Daily 1st</h4>
+<div id="daily1Winners">No winner yet.</div>
+</div>
+
+<div class="winner-box">
+<h4>🥈 Daily 2nd</h4>
+<div id="daily2Winners">No winner yet.</div>
+</div>
+
+<div class="winner-box">
+<h4>🥉 Daily 3rd</h4>
+<div id="daily3Winners">No winner yet.</div>
+</div>
+
+<div class="winner-box">
+<h4>🏆 Weekly</h4>
+<div id="weeklyWinners">No winner yet.</div>
+</div>
+
+</div>
+
+</div>
+
+</aside>
+
+</div>
+
+</section>
+
 </main>
-<footer>© CODY KAIN SPIN · Use only after testing and security review</footer>
-<script>
-const FUNCTION_URL="https://vrpmzvifpzlsulmzxvdc.supabase.co/functions/v1/cody-kain-spin";
-const PUBLISHABLE_KEY="sb_publishable_jon3lwQ_FMuPSnqvVNlMWw_W1o6agbn";
-const $=id=>document.getElementById(id);
-let token="",player=null,busy=false,rotation=0;
 
-async function api(action,extra={},needsLogin=true){
-  const headers={"Content-Type":"application/json","apikey":PUBLISHABLE_KEY};
-  const body={action,...extra};
-  if(needsLogin && token) body.token=token;
-  const response=await fetch(FUNCTION_URL,{method:"POST",headers,body:JSON.stringify(body)});
-  let data={};
-  try{data=await response.json()}catch{}
-  if(!response.ok) throw new Error(data.error||("Request failed ("+response.status+")"));
+<footer>
+© CODY KAIN SPIN · Play fairly
+</footer>
+
+
+<script>
+
+const FUNCTION_URL =
+"https://vrpmzvifpzlsulmzxvdc.supabase.co/functions/v1/cody-kain-spin";
+
+const PUBLISHABLE_KEY =
+"sb_publishable_jon3lwQ_FMuPSnqvVNlMWw_W1o6agbn";
+
+const $ = id => document.getElementById(id);
+
+let token = "";
+let player = null;
+let busy = false;
+let rotation = 0;
+let allPlayers = [];
+
+
+/* ---------------- API ---------------- */
+
+async function api(
+  action,
+  extra = {},
+  needsLogin = true
+){
+
+  const headers = {
+    "Content-Type":"application/json",
+    "apikey":PUBLISHABLE_KEY
+  };
+
+  const body = {
+    action,
+    ...extra
+  };
+
+  if(needsLogin && token){
+    body.token = token;
+  }
+
+  const response = await fetch(
+    FUNCTION_URL,
+    {
+      method:"POST",
+      headers,
+      body:JSON.stringify(body)
+    }
+  );
+
+  let data = {};
+
+  try{
+    data = await response.json();
+  }catch{}
+
+  if(!response.ok){
+    throw new Error(
+      data.error ||
+      `Request failed (${response.status})`
+    );
+  }
+
   return data;
 }
-function setStatus(id,msg){$(id).textContent=msg}
-function showApp(){
-  $("loginPanel").classList.add("hidden");
-  $("appPanel").classList.remove("hidden");
-  $("who").textContent=(player.display_name||player.player_code)+" · "+player.role.toUpperCase();
-  $("adminPanel").classList.toggle("hidden",player.role!=="admin");
-  $("notice").textContent="Logged in. Spin results are requested from the server.";
+
+
+/* ---------------- STATUS ---------------- */
+
+function setStatus(id,msg){
+  $(id).textContent = msg;
 }
+
+
+/* ---------------- LOGIN ---------------- */
+
 async function login(){
-  $("loginBtn").disabled=true;
-  setStatus("loginStatus","Checking login...");
+
+  $("loginBtn").disabled = true;
+
+  setStatus(
+    "loginStatus",
+    "Checking login..."
+  );
+
   try{
-    const data=await api("login",{id:$("loginId").value.trim(),password:$("loginPassword").value},false);
-    token=data.token;player=data.player;
-    if(!token||!player) throw new Error("Login response missing player or session.");
-    showApp();
-    await refreshWinners();
-    if(player.role==="admin") await refreshPlayers();
-  }catch(e){setStatus("loginStatus",e.message||"Login failed.");}
-  finally{$("loginBtn").disabled=false;}
-}
-function logout(){
-  token="";player=null;
-  $("loginPanel").classList.remove("hidden");
-  $("appPanel").classList.add("hidden");
-  $("loginPassword").value="";
-  $("notice").textContent="Please log in.";
-}
-async function refreshWinners(){
-  $("winners").textContent="Loading winners...";
-  try{
-    const data=await api("winners");
-    const list=data.winners||[];
-    $("winners").replaceChildren();
-    if(!list.length){$("winners").textContent="No winners recorded yet.";return;}
-    list.forEach(w=>{
-      const row=document.createElement("div");row.className="item";
-      const name=w.ck_players?.display_name||w.ck_players?.player_code||"Player";
-      const type=w.ck_draws?.draw_type==="weekly"?"WEEKLY":"DAILY";
-      row.textContent=name+" · "+type+" · Position "+w.position+" · "+w.reward_points+" points";
-      $("winners").appendChild(row);
-    });
-  }catch(e){$("winners").textContent=e.message;}
-}
-async function refreshPlayers(){
-  $("players").textContent="Loading players...";
-  try{
-    const data=await api("players");
-    $("players").replaceChildren();
-    (data.players||[]).forEach(p=>{
-      const row=document.createElement("div");row.className="item";
-      const label=document.createElement("span");
-      label.textContent=p.display_name+" ("+p.player_code+") · "+(p.is_active?"Active":"Disabled")+" ";
-      row.appendChild(label);
-      if(p.role!=="admin"){
-        const btn=document.createElement("button");
-        btn.className="secondary";btn.textContent=p.is_active?"DISABLE":"ENABLE";
-        btn.onclick=async()=>{
-          btn.disabled=true;
-          try{await api("toggle_player",{player_id:p.id});await refreshPlayers();}
-          catch(e){setStatus("adminStatus",e.message);btn.disabled=false;}
-        };
-        row.appendChild(btn);
-      }
-      $("players").appendChild(row);
-    });
-    if(!(data.players||[]).length)$("players").textContent="No players found.";
-  }catch(e){$("players").textContent=e.message;}
-}
-async function addPlayer(){
-  $("addPlayerBtn").disabled=true;
-  try{
-    const data=await api("add_player",{id:$("newId").value.trim(),name:$("newName").value.trim(),password:$("newPassword").value});
-    setStatus("adminStatus","Player created: "+data.player.player_code);
-    $("newId").value="";$("newName").value="";$("newPassword").value="";
-    await refreshPlayers();
-  }catch(e){setStatus("adminStatus",e.message);}
-  finally{$("addPlayerBtn").disabled=false;}
-}
-async function openDraw(type){
-  const label=type==="weekly"?"weekly":"daily";
-  if(!confirm("Start a new "+label+" draw? Make sure the previous draw is finished."))return;
-  $("dailyBtn").disabled=true;$("weeklyBtn").disabled=true;
-  try{
-    const data=await api("reset_draw",{type});
-    setStatus("drawStatus","New "+label+" draw opened. Draw number: "+data.draw.draw_number);
-  }catch(e){setStatus("drawStatus",e.message);}
-  finally{$("dailyBtn").disabled=false;$("weeklyBtn").disabled=false;}
-}
-function say(text){
-  if(!("speechSynthesis" in window))return;
-  speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);u.rate=1.05;u.pitch=1.1;speechSynthesis.speak(u);
-}
-async function spin(){
-  if(busy||!player)return;
-  const game=$("game").value;
-  const type=game==="weekly"?"weekly":"daily";
-  const position=game==="d1"?1:game==="d2"?2:game==="d3"?3:1;
-  const amount=game==="weekly"?"$100":game==="d1"?"$30":game==="d2"?"$20":"$10";
-  const seconds=game==="weekly"?60:30;
-  busy=true;$("spinBtn").disabled=true;$("game").disabled=true;
-  $("result").style.display="none";
-  setStatus("spinStatus","Contacting server...");
-  let outcome=null,error=null;
-  try{outcome=await api("spin",{type,position});}catch(e){error=e.message||"Spin failed.";}
-  if(error){
-    setStatus("spinStatus",error);
-    busy=false;$("spinBtn").disabled=false;$("game").disabled=false;
-    return;
-  }
-  if(outcome.error){
-    setStatus("spinStatus",outcome.error);
-    busy=false;$("spinBtn").disabled=false;$("game").disabled=false;
-    return;
-  }
-  setStatus("spinStatus","CODY KAIN... CODY KAIN... Good luck!");
-  say("Cody Kain! Cody Kain!");
-  rotation+=360*6+Math.floor(Math.random()*360);
-  $("wheel").style.transition=`transform ${seconds}s cubic-bezier(.08,.72,.08,1)`;
-  $("wheel").style.transform=`rotate(${rotation}deg)`;
-  setTimeout(async()=>{
-    $("result").style.display="block";
-    if(outcome.win){
-      $("resultTitle").textContent="🎉 CONGRATULATIONS!";
-      $("resultPrize").textContent=amount;
-      $("resultMessage").textContent="Server recorded a winner. Contact admin to verify the result.";
-      say("Congratulations! You are a recorded winner.");
-    }else{
-      $("resultTitle").textContent="BETTER LUCK NEXT TIME";
-      $("resultPrize").textContent="";
-      $("resultMessage").textContent=outcome.message||"No prize recorded for this attempt.";
-      say("Better luck next time.");
+
+    const data = await api(
+      "login",
+      {
+        id:$("loginId").value.trim(),
+        password:$("loginPassword").value
+      },
+      false
+    );
+
+    token = data.token;
+    player = data.player;
+
+    if(!token || !player){
+      throw new Error(
+        "Login response missing player or session."
+      );
     }
-    setStatus("spinStatus","Server response received. Check the winner list.");
+
+    showApp();
+
     await refreshWinners();
-    busy=false;$("spinBtn").disabled=false;$("game").disabled=false;
-  },seconds*1000);
+
+    if(player.role === "admin"){
+      await refreshPlayers();
+      await loadDrawSettings();
+      await refreshSummary();
+    }
+
+  }catch(e){
+
+    setStatus(
+      "loginStatus",
+      e.message || "Login failed."
+    );
+
+  }finally{
+
+    $("loginBtn").disabled = false;
+
+  }
 }
-$("loginBtn").addEventListener("click",login);
-$("loginPassword").addEventListener("keydown",e=>{if(e.key==="Enter")login()});
-$("logoutBtn").addEventListener("click",logout);
-$("refreshWinners").addEventListener("click",refreshWinners);
-$("refreshPlayers").addEventListener("click",refreshPlayers);
-$("addPlayerBtn").addEventListener("click",addPlayer);
-$("dailyBtn").addEventListener("click",()=>openDraw("daily"));
-$("weeklyBtn").addEventListener("click",()=>openDraw("weekly"));
-$("spinBtn").addEventListener("click",spin);
+
+
+/* ---------------- SHOW APP ---------------- */
+
+function showApp(){
+
+  $("loginPanel")
+    .classList.add("hidden");
+
+  $("appPanel")
+    .classList.remove("hidden");
+
+  $("who").textContent =
+    `${player.display_name || player.player_code} · ${player.role.toUpperCase()}`;
+
+  $("adminPanel")
+    .classList.toggle(
+      "hidden",
+      player.role !== "admin"
+    );
+
+  $("notice").textContent =
+    "Logged in. Server controls the draw.";
+
+}
+
+
+/* ---------------- LOGOUT ---------------- */
+
+function logout(){
+
+  token = "";
+  player = null;
+
+  $("loginPanel")
+    .classList.remove("hidden");
+
+  $("appPanel")
+    .classList.add("hidden");
+
+  $("loginPassword").value = "";
+
+  $("notice").textContent =
+    "Please log in.";
+
+}
+
+
+/* ---------------- WINNERS ---------------- */
+
+async function refreshWinners(){
+
+  $("winners").textContent =
+    "Loading winners...";
+
+  try{
+
+    const data =
+      await api("winners");
+
+    const list =
+      data.winners || [];
+
+    $("winners").replaceChildren();
+
+    if(!list.length){
+
+      $("winners").textContent =
+        "No winners recorded yet.";
+
+      return;
+    }
+
+    list.forEach(w=>{
+
+      const row =
+        document.createElement("div");
+
+      row.className = "item";
+
+      const name =
+        w.ck_players?.display_name ||
+        w.ck_players?.player_code ||
+        "Player";
+
+      const type =
+        w.ck_draws?.draw_type === "weekly"
+          ? "WEEKLY"
+          : "DAILY";
+
+      const position =
+        type === "WEEKLY"
+          ? "WINNER"
+          : `POSITION ${w.position}`;
+
+      row.textContent =
+        `${name} · ${type} · ${position} · ${w.reward_points} points`;
+
+      $("winners").appendChild(row);
+
+    });
+
+  }catch(e){
+
+    $("winners").textContent =
+      e.message;
+
+  }
+
+}
+
+
+/* ---------------- PLAYERS ---------------- */
+
+async function refreshPlayers(){
+
+  $("players").textContent =
+    "Loading players...";
+
+  try{
+
+    const data =
+      await api("players");
+
+    allPlayers =
+      data.players || [];
+
+    renderPlayerSelectors();
+
+    $("players").replaceChildren();
+
+    allPlayers.forEach(p=>{
+
+      const row =
+        document.createElement("div");
+
+      row.className = "item";
+
+      const label =
+        document.createElement("span");
+
+      label.textContent =
+        `${p.display_name} (${p.player_code}) · ${p.is_active ? "Active" : "Disabled"} `;
+
+      row.appendChild(label);
+
+      if(p.role !== "admin"){
+
+        const btn =
+          document.createElement("button");
+
+        btn.className =
+          "secondary";
+
+        btn.textContent =
+          p.is_active
+            ? "DISABLE"
+            : "ENABLE";
+
+        btn.onclick = async()=>{
+
+          btn.disabled = true;
+
+          try{
+
+            await api(
+              "toggle_player",
+              {player_id:p.id}
+            );
+
+            await refreshPlayers();
+
+          }catch(e){
+
+            setStatus(
+              "adminStatus",
+              e.message
+            );
+
+            btn.disabled = false;
+
+          }
+
+        };
+
+        row.appendChild(btn);
+
+      }
+
+      $("players").appendChild(row);
+
+    });
+
+    if(!allPlayers.length){
+
+      $("players").textContent =
+        "No players found.";
+
+    }
+
+  }catch(e){
+
+    $("players").textContent =
+      e.message;
+
+  }
+
+}
+
+
+/* ---------------- PLAYER SELECTORS ---------------- */
+
+function renderPlayerSelectors(){
+
+  const dailyBox =
+    $("dailyPlayers");
+
+  const weeklyBox =
+    $("weeklyPlayers");
+
+  dailyBox.replaceChildren();
+  weeklyBox.replaceChildren();
+
+  const players =
+    allPlayers.filter(
+      p =>
+        p.role === "player" &&
+        p.is_active
+    );
+
+  if(!players.length){
+
+    dailyBox.textContent =
+      "No active players.";
+
+    weeklyBox.textContent =
+      "No active players.";
+
+    return;
+
+  }
+
+  players.forEach(p=>{
+
+    const daily =
+      document.createElement("label");
+
+    daily.className =
+      "player-check";
+
+    const dcheck =
+      document.createElement("input");
+
+    dcheck.type = "checkbox";
+    dcheck.value = p.id;
+    dcheck.dataset.daily = "1";
+
+    daily.appendChild(dcheck);
+
+    daily.append(
+      document.createTextNode(
+        `${p.display_name} (${p.player_code})`
+      )
+    );
+
+    dailyBox.appendChild(daily);
+
+
+    const weekly =
+      document.createElement("label");
+
+    weekly.className =
+      "player-check";
+
+    const wcheck =
+      document.createElement("input");
+
+    wcheck.type = "checkbox";
+    wcheck.value = p.id;
+    wcheck.dataset.weekly = "1";
+
+    weekly.appendChild(wcheck);
+
+    weekly.append(
+      document.createTextNode(
+        `${p.display_name} (${p.player_code})`
+      )
+    );
+
+    weeklyBox.appendChild(weekly);
+
+  });
+
+}
+
+
+/* ---------------- ADD PLAYER ---------------- */
+
+async function addPlayer(){
+
+  $("addPlayerBtn").disabled = true;
+
+  try{
+
+    const data =
+      await api(
+        "add_player",
+        {
+          id:$("newId").value.trim(),
+          name:$("newName").value.trim(),
+          password:$("newPassword").value
+        }
+      );
+
+    setStatus(
+      "adminStatus",
+      "Player created: " +
+      data.player.player_code
+    );
+
+    $("newId").value = "";
+    $("newName").value = "";
+    $("newPassword").value = "";
+
+    await refreshPlayers();
+
+  }catch(e){
+
+    setStatus(
+      "adminStatus",
+      e.message
+    );
+
+  }finally{
+
+    $("addPlayerBtn").disabled = false;
+
+  }
+
+}
+
+
+/* ---------------- DATETIME ---------------- */
+
+function toISOStringOrNull(value){
+
+  if(!value) return null;
+
+  const date =
+    new Date(value);
+
+  if(isNaN(date.getTime())){
+    return null;
+  }
+
+  return date.toISOString();
+
+}
+
+function toLocalInput(value){
+
+  if(!value) return "";
+
+  const d =
+    new Date(value);
+
+  if(isNaN(d.getTime())){
+    return "";
+  }
+
+  const pad =
+    n => String(n).padStart(2,"0");
+
+  return (
+    d.getFullYear() +
+    "-" +
+    pad(d.getMonth()+1) +
+    "-" +
+    pad(d.getDate()) +
+    "T" +
+    pad(d.getHours()) +
+    ":" +
+    pad(d.getMinutes())
+  );
+
+}
+
+
+/* ---------------- LOAD SETTINGS ---------------- */
+
+async function loadDrawSettings(){
+
+  try{
+
+    const data =
+      await api(
+        "get_draw_settings"
+      );
+
+    const daily =
+      data.daily;
+
+    const weekly =
+      data.weekly;
+
+    if(daily){
+
+      $("dailyEnabled").checked =
+        daily.is_enabled !== false;
+
+      $("dailyStart").value =
+        toLocalInput(
+          daily.starts_at
+        );
+
+      $("dailyEnd").value =
+        toLocalInput(
+          daily.ends_at
+        );
+
+      $("dailyReward1").value =
+        daily.rewards?.["1"] ?? 30;
+
+      $("dailyReward2").value =
+        daily.rewards?.["2"] ?? 20;
+
+      $("dailyReward3").value =
+        daily.rewards?.["3"] ?? 10;
+
+      const selected =
+        daily.rewards?.daily_players || [];
+
+      document
+        .querySelectorAll(
+          "[data-daily='1']"
+        )
+        .forEach(c=>{
+          c.checked =
+            selected.includes(c.value);
+        });
+
+    }
+
+    if(weekly){
+
+      $("weeklyEnabled").checked =
+        weekly.is_enabled !== false;
+
+      $("weeklyStart").value =
+        toLocalInput(
+          weekly.starts_at
+        );
+
+      $("weeklyEnd").value =
+        toLocalInput(
+          weekly.ends_at
+        );
+
+      $("weeklyReward").value =
+        weekly.rewards?.["1"] ?? 100;
+
+      const selected =
+        weekly.rewards?.weekly_players || [];
+
+      document
+        .querySelectorAll(
+          "[data-weekly='1']"
+        )
+        .forEach(c=>{
+          c.checked =
+            selected.includes(c.value);
+        });
+
+    }
+
+  }catch(e){
+
+    setStatus(
+      "adminStatus",
+      e.message
+    );
+
+  }
+
+}
+
+
+/* ---------------- SAVE DAILY ---------------- */
+
+async function saveDailySettings(){
+
+  $("saveDailyBtn").disabled = true;
+
+  try{
+
+    const playerIds =
+      [...document.querySelectorAll(
+        "[data-daily='1']:checked"
+      )].map(
+        c => c.value
+      );
+
+    const data =
+      await api(
+        "update_draw_settings",
+        {
+          type:"daily",
+          is_enabled:
+            $("dailyEnabled").checked,
+
+          starts_at:
+            toISOStringOrNull(
+              $("dailyStart").value
+            ),
+
+          ends_at:
+            toISOStringOrNull(
+              $("dailyEnd").value
+            ),
+
+          reward_1:
+            Number(
+              $("dailyReward1").value
+            ),
+
+          reward_2:
+            Number(
+              $("dailyReward2").value
+            ),
+
+          reward_3:
+            Number(
+              $("dailyReward3").value
+            ),
+
+          player_ids:
+            playerIds
+        }
+      );
+
+    setStatus(
+      "adminStatus",
+      `Daily settings saved. ${playerIds.length} player(s) selected.`
+    );
+
+  }catch(e){
+
+    setStatus(
+      "adminStatus",
+      e.message
+    );
+
+  }finally{
+
+    $("saveDailyBtn").disabled = false;
+
+  }
+
+}
+
+
+/* ---------------- SAVE WEEKLY ---------------- */
+
+async function saveWeeklySettings(){
+
+  $("saveWeeklyBtn").disabled = true;
+
+  try{
+
+    const playerIds =
+      [...document.querySelectorAll(
+        "[data-weekly='1']:checked"
+      )].map(
+        c => c.value
+      );
+
+    await api(
+      "update_draw_settings",
+      {
+        type:"weekly",
+        is_enabled:
+          $("weeklyEnabled").checked,
+
+        starts_at:
+          toISOStringOrNull(
+            $("weeklyStart").value
+          ),
+
+        ends_at:
+          toISOStringOrNull(
+            $("weeklyEnd").value
+          ),
+
+        reward_1:
+          Number(
+            $("weeklyReward").value
+          ),
+
+        player_ids:
+          playerIds
+      }
+    );
+
+    setStatus(
+      "adminStatus",
+      `Weekly settings saved. ${playerIds.length} player(s) selected.`
+    );
+
+  }catch(e){
+
+    setStatus(
+      "adminStatus",
+      e.message
+    );
+
+  }finally{
+
+    $("saveWeeklyBtn").disabled = false;
+
+  }
+
+}
+
+
+/* ---------------- DRAW CONTROL ---------------- */
+
+async function openDraw(type){
+
+  const label =
+    type === "weekly"
+      ? "weekly"
+      : "daily";
+
+  if(
+    !confirm(
+      `Start a new ${label} draw?`
+    )
+  ){
+    return;
+  }
+
+  $("dailyBtn").disabled = true;
+  $("weeklyBtn").disabled = true;
+
+  try{
+
+    const data =
+      await api(
+        "reset_draw",
+        {type}
+      );
+
+    setStatus(
+      "drawStatus",
+      `New ${label} draw opened. Draw number: ${data.draw.draw_number}`
+    );
+
+  }catch(e){
+
+    setStatus(
+      "drawStatus",
+      e.message
+    );
+
+  }finally{
+
+    $("dailyBtn").disabled = false;
+    $("weeklyBtn").disabled = false;
+
+  }
+
+}
+
+
+/* ---------------- CLOSE DRAW ---------------- */
+
+async function closeDraw(type){
+
+  const label =
+    type === "weekly"
+      ? "weekly"
+      : "daily";
+
+  if(
+    !confirm(
+      `Close the ${label} draw?`
+    )
+  ){
+    return;
+  }
+
+  try{
+
+    await api(
+      "close_draw",
+      {type}
+    );
+
+    setStatus(
+      "drawStatus",
+      `${label} draw closed.`
+    );
+
+    await refreshWinners();
+    await refreshSummary();
+
+  }catch(e){
+
+    setStatus(
+      "drawStatus",
+      e.message
+    );
+
+  }
+
+}
+
+
+/* ---------------- WINNER SUMMARY ---------------- */
+
+async function refreshSummary(){
+
+  try{
+
+    const data =
+      await api(
+        "winner_summary"
+      );
+
+    renderWinnerGroup(
+      "daily1Winners",
+      data.daily1
+    );
+
+    renderWinnerGroup(
+      "daily2Winners",
+      data.daily2
+    );
+
+    renderWinnerGroup(
+      "daily3Winners",
+      data.daily3
+    );
+
+    renderWinnerGroup(
+      "weeklyWinners",
+      data.weekly
+    );
+
+  }catch(e){
+
+    $("daily1Winners").textContent =
+      e.message;
+
+  }
+
+}
+
+
+function renderWinnerGroup(id,list){
+
+  const box = $(id);
+
+  box.replaceChildren();
+
+  if(!list || !list.length){
+
+    box.textContent =
+      "No winner yet.";
+
+    return;
+
+  }
+
+  list.forEach(w=>{
+
+    const row =
+      document.createElement("div");
+
+    row.className =
+      "item";
+
+    const name =
+      w.ck_players?.display_name ||
+      w.ck_players?.player_code ||
+      "Player";
+
+    row.textContent =
+      `${name} · ${w.reward_points} points · ${new Date(w.created_at).toLocaleString()}`;
+
+    box.appendChild(row);
+
+  });
+
+}
+
+
+/* ---------------- WHEEL ---------------- */
+
+function makeLabels(){
+
+  const wheel =
+    $("wheel");
+
+  wheel.innerHTML = "";
+
+  const labels = [
+    "1ST",
+    "2ND",
+    "3RD",
+    "WIN",
+    "LUCKY",
+    "PRIZE",
+    "CODY",
+    "KAIN"
+  ];
+
+  labels.forEach(
+    (name,i)=>{
+
+      const el =
+        document.createElement("div");
+
+      el.className =
+        "wlabel";
+
+      el.textContent =
+        name;
+
+      el.style.transform =
+        `rotate(${i*45+22.5}deg)`;
+
+      wheel.appendChild(el);
+
+    }
+  );
+
+}
+
+
+/* ---------------- SPEECH ---------------- */
+
+function say(text){
+
+  if(
+    !("speechSynthesis" in window)
+  ){
+    return;
+  }
+
+  speechSynthesis.cancel();
+
+  const u =
+    new SpeechSynthesisUtterance(
+      text
+    );
+
+  u.rate = 1.05;
+  u.pitch = 1.1;
+
+  speechSynthesis.speak(u);
+
+}
+
+
+/* ---------------- SPIN ---------------- */
+
+async function spin(){
+
+  if(
+    busy ||
+    !player
+  ){
+    return;
+  }
+
+  const game =
+    $("game").value;
+
+  const type =
+    game === "weekly"
+      ? "weekly"
+      : "daily";
+
+  const position =
+    game === "d1"
+      ? 1
+      : game === "d2"
+        ? 2
+        : game === "d3"
+          ? 3
+          : 1;
+
+  const amount =
+    game === "weekly"
+      ? "$100"
+      : game === "d1"
+        ? "$30"
+        : game === "d2"
+          ? "$20"
+          : "$10";
+
+  busy = true;
+
+  $("spinBtn").disabled = true;
+  $("game").disabled = true;
+
+  $("result").style.display =
+    "none";
+
+  setStatus(
+    "spinStatus",
+    "Contacting server..."
+  );
+
+  let outcome;
+
+  try{
+
+    outcome =
+      await api(
+        "spin",
+        {
+          type,
+          position
+        }
+      );
+
+  }catch(e){
+
+    setStatus(
+      "spinStatus",
+      e.message
+    );
+
+    busy = false;
+
+    $("spinBtn").disabled = false;
+    $("game").disabled = false;
+
+    return;
+
+  }
+
+  if(outcome.error){
+
+    setStatus(
+      "spinStatus",
+      outcome.error
+    );
+
+    busy = false;
+
+    $("spinBtn").disabled = false;
+    $("game").disabled = false;
+
+    return;
+
+  }
+
+  say(
+    "Cody Kain! Cody Kain!"
+  );
+
+  setStatus(
+    "spinStatus",
+    "CODY KAIN... Good luck!"
+  );
+
+  rotation +=
+    360 * 6 +
+    Math.floor(
+      Math.random() * 360
+    );
+
+  $("wheel").style.transform =
+    `rotate(${rotation}deg)`;
+
+  setTimeout(
+    async()=>{
+
+      $("result").style.display =
+        "block";
+
+      if(outcome.win){
+
+        $("resultTitle").textContent =
+          "🎉 CONGRATULATIONS!";
+
+        $("resultPrize").textContent =
+          amount;
+
+        $("resultMessage").textContent =
+          "Server recorded your winner result.";
+
+        say(
+          "Congratulations! You are a recorded winner."
+        );
+
+      }else{
+
+        $("resultTitle").textContent =
+          "BETTER LUCK NEXT TIME";
+
+        $("resultPrize").textContent =
+          "";
+
+        $("resultMessage").textContent =
+          outcome.message ||
+          "No prize recorded for this attempt.";
+
+        say(
+          "Better luck next time."
+        );
+
+      }
+
+      setStatus(
+        "spinStatus",
+        "Spin complete. Check the winner list."
+      );
+
+      await refreshWinners();
+
+      if(player.role === "admin"){
+        await refreshSummary();
+      }
+
+      busy = false;
+
+      $("spinBtn").disabled = false;
+      $("game").disabled = false;
+
+    },
+    8000
+  );
+
+}
+
+
+/* ---------------- EVENTS ---------------- */
+
+$("loginBtn")
+  .addEventListener(
+    "click",
+    login
+  );
+
+$("loginPassword")
+  .addEventListener(
+    "keydown",
+    e=>{
+      if(e.key === "Enter"){
+        login();
+      }
+    }
+  );
+
+$("logoutBtn")
+  .addEventListener(
+    "click",
+    logout
+  );
+
+$("refreshWinners")
+  .addEventListener(
+    "click",
+    refreshWinners
+  );
+
+$("refreshPlayers")
+  .addEventListener(
+    "click",
+    refreshPlayers
+  );
+
+$("addPlayerBtn")
+  .addEventListener(
+    "click",
+    addPlayer
+  );
+
+$("saveDailyBtn")
+  .addEventListener(
+    "click",
+    saveDailySettings
+  );
+
+$("saveWeeklyBtn")
+  .addEventListener(
+    "click",
+    saveWeeklySettings
+  );
+
+$("dailyBtn")
+  .addEventListener(
+    "click",
+    ()=>openDraw("daily")
+  );
+
+$("weeklyBtn")
+  .addEventListener(
+    "click",
+    ()=>openDraw("weekly")
+  );
+
+$("closeDailyBtn")
+  .addEventListener(
+    "click",
+    ()=>closeDraw("daily")
+  );
+
+$("closeWeeklyBtn")
+  .addEventListener(
+    "click",
+    ()=>closeDraw("weekly")
+  );
+
+$("refreshSummary")
+  .addEventListener(
+    "click",
+    refreshSummary
+  );
+
+$("spinBtn")
+  .addEventListener(
+    "click",
+    spin
+  );
+
+
+/* ---------------- START ---------------- */
+
+makeLabels();
+
 </script>
+
 </body>
 </html>
