@@ -2024,6 +2024,105 @@ $("spinBtn")
 /* ---------------- START ---------------- */
 
 makeLabels();
+  <!-- SPIN VIDEO RECORDING -->
+<div id="videoRecorder" class="hidden">
+  <video id="spinVideo" autoplay muted playsinline></video>
+  <div class="row">
+    <button id="startVideoBtn" class="secondary">START RECORDING</button>
+    <button id="stopVideoBtn" class="danger" disabled>STOP RECORDING</button>
+  </div>
+  <div id="videoStatus" class="status"></div>
+</div>
+
+<script>
+let mediaRecorder = null;
+let recordedChunks = [];
+
+async function startSpinRecording(){
+
+  try{
+
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video:true,
+      audio:true
+    });
+
+    $("spinVideo").srcObject = stream;
+    recordedChunks = [];
+
+    mediaRecorder = new MediaRecorder(stream);
+
+    mediaRecorder.ondataavailable = e => {
+      if(e.data.size > 0){
+        recordedChunks.push(e.data);
+      }
+    };
+
+    mediaRecorder.onstop = async () => {
+
+      stream.getTracks().forEach(track => track.stop());
+
+      const blob = new Blob(
+        recordedChunks,
+        {type:"video/webm"}
+      );
+
+      setStatus(
+        "videoStatus",
+        "Recording complete."
+      );
+
+      console.log("Video ready:", blob.size);
+    };
+
+    mediaRecorder.start();
+
+    $("startVideoBtn").disabled = true;
+    $("stopVideoBtn").disabled = false;
+
+    setStatus(
+      "videoStatus",
+      "Recording started..."
+    );
+
+  }catch(e){
+
+    setStatus(
+      "videoStatus",
+      "Camera/microphone permission required."
+    );
+
+  }
+}
+
+function stopSpinRecording(){
+
+  if(
+    mediaRecorder &&
+    mediaRecorder.state !== "inactive"
+  ){
+
+    mediaRecorder.stop();
+
+    $("startVideoBtn").disabled = false;
+    $("stopVideoBtn").disabled = true;
+
+  }
+
+}
+
+$("startVideoBtn")
+  .addEventListener(
+    "click",
+    startSpinRecording
+  );
+
+$("stopVideoBtn")
+  .addEventListener(
+    "click",
+    stopSpinRecording
+  );
+</script>
 
 </script>
 
