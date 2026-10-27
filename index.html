@@ -2,85 +2,135 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>CODY KAIN SPIN</title>
 
 <style>
 :root{
   --gold:#ffd76a;
-  --bg:#080b16;
+  --gold2:#f0a928;
+  --bg:#070a14;
   --panel:#12182b;
+  --panel2:#1a223a;
+  --text:#fff;
   --muted:#aeb8d2;
   --green:#55e69a;
   --red:#ff718b;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
-  background:
-    radial-gradient(ellipse at top,#22234b,#080b16 65%);
-  color:#fff;
-  font-family:Arial,sans-serif;
   min-height:100vh;
+  background:
+    radial-gradient(circle at top,#292b5c 0%,#0c1020 45%,#05070e 100%);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+button,
+input,
+select{
+  font:inherit;
+}
+
+button{
+  border:0;
+  border-radius:10px;
+  padding:12px 16px;
+  cursor:pointer;
+  font-weight:800;
+}
+
+button:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+input,
+select{
+  width:100%;
+  padding:12px;
+  border-radius:9px;
+  border:1px solid #3b4565;
+  background:#080d1b;
+  color:white;
+  outline:none;
+}
+
+input:focus,
+select:focus{
+  border-color:var(--gold);
 }
 
 header{
   text-align:center;
-  padding:24px 12px;
-  border-bottom:1px solid #ffffff19;
+  padding:28px 15px;
+  border-bottom:1px solid #ffffff15;
 }
 
 .logo{
-  font-size:clamp(26px,5vw,42px);
+  font-size:clamp(27px,6vw,44px);
   font-weight:900;
   letter-spacing:2px;
   color:var(--gold);
-  text-shadow:0 0 25px #ffb52e66;
+  text-shadow:0 0 25px #ffb52e55;
 }
 
 header p{
-  color:var(--muted);
   margin:8px 0 0;
+  color:var(--muted);
 }
 
 .wrap{
-  max-width:1100px;
+  width:min(1100px,100%);
   margin:auto;
-  padding:18px 12px;
+  padding:20px 14px;
 }
 
 .notice{
   text-align:center;
   color:#ffdf8b;
-  font-size:12px;
-  margin-bottom:15px;
+  font-size:13px;
+  margin-bottom:16px;
 }
 
 .cards{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:10px;
-}
-
-.card,.panel{
-  background:linear-gradient(145deg,#1c2340,#101526);
-  border:1px solid #ffffff19;
-  border-radius:15px;
-  padding:16px;
-  margin-bottom:14px;
+  gap:12px;
 }
 
 .card{
+  background:linear-gradient(145deg,#1c2340,#101526);
+  border:1px solid #ffffff15;
+  border-radius:15px;
+  padding:16px 8px;
   text-align:center;
 }
 
 .money{
-  font-size:30px;
   color:var(--gold);
+  font-size:30px;
   font-weight:900;
-  margin:10px;
+  margin:10px 0;
+}
+
+.card small{
+  color:var(--muted);
+}
+
+.panel{
+  background:linear-gradient(145deg,#1b2340,#101526);
+  border:1px solid #ffffff16;
+  border-radius:15px;
+  padding:18px;
+  margin-bottom:15px;
+  box-shadow:0 8px 30px #0003;
 }
 
 .layout{
@@ -91,59 +141,37 @@ header p{
 }
 
 h2{
-  font-size:19px;
-  margin:0 0 14px;
+  margin:0 0 15px;
+  font-size:20px;
 }
 
 h3{
-  margin:16px 0 8px;
+  margin:18px 0 9px;
   font-size:15px;
+  color:#f2f4ff;
 }
 
 label{
   display:block;
-  font-size:13px;
   margin:12px 0 6px;
-  color:#d5d9e8;
-}
-
-input,select{
-  width:100%;
-  padding:12px;
-  background:#090e1d;
-  color:white;
-  border:1px solid #353e5c;
-  border-radius:9px;
-  font-size:15px;
-}
-
-button{
-  border:0;
-  border-radius:9px;
-  padding:12px 15px;
-  font-weight:800;
-  cursor:pointer;
-  margin-top:10px;
-}
-
-button:disabled{
-  opacity:.45;
-  cursor:not-allowed;
+  color:#d7dced;
+  font-size:13px;
 }
 
 .primary{
-  background:linear-gradient(100deg,#ffe58c,#efa927);
-  color:#251707;
   width:100%;
+  margin-top:12px;
+  background:linear-gradient(100deg,#ffe995,#efa927);
+  color:#241804;
 }
 
 .secondary{
-  background:#283352;
+  background:#293553;
   color:white;
 }
 
 .danger{
-  background:#622b3d;
+  background:#632c3e;
   color:white;
 }
 
@@ -154,7 +182,7 @@ button:disabled{
 
 .row{
   display:flex;
-  gap:8px;
+  gap:9px;
 }
 
 .row>*{
@@ -183,35 +211,38 @@ button:disabled{
   display:none!important;
 }
 
+/* WHEEL */
+
 .wheelbox{
   position:relative;
-  width:min(100%,350px);
+  width:min(100%,360px);
   aspect-ratio:1;
   margin:25px auto;
 }
 
 .pointer{
   position:absolute;
-  z-index:3;
-  top:-5px;
+  z-index:5;
+  top:-8px;
   left:50%;
   transform:translateX(-50%);
   width:0;
   height:0;
-  border-left:16px solid transparent;
-  border-right:16px solid transparent;
-  border-top:34px solid white;
-  filter:drop-shadow(0 2px 4px #000);
+  border-left:17px solid transparent;
+  border-right:17px solid transparent;
+  border-top:36px solid white;
+  filter:drop-shadow(0 3px 5px #000);
 }
 
 .wheel{
+  position:relative;
   width:100%;
   height:100%;
   border-radius:50%;
   border:7px solid #f9d875;
   box-shadow:
     0 0 0 5px #563c13,
-    0 0 30px #ffbe4960;
+    0 0 35px #ffbe4955;
 
   background:
     conic-gradient(
@@ -222,13 +253,12 @@ button:disabled{
       #e7a52b 180deg 225deg,
       #e84e36 225deg 270deg,
       #414fc1 270deg 315deg,
-      #bd368c 315deg
+      #bd368c 315deg 360deg
     );
 
   transition:
     transform 8s cubic-bezier(.08,.72,.08,1);
 
-  position:relative;
   overflow:hidden;
 }
 
@@ -250,62 +280,64 @@ button:disabled{
   position:absolute;
   left:50%;
   top:50%;
-  width:46%;
+  width:45%;
   height:26px;
   margin-top:-13px;
   transform-origin:0 50%;
   display:flex;
   align-items:center;
   padding-left:24px;
-  font-size:clamp(9px,2.5vw,13px);
+  font-size:12px;
   font-weight:900;
-  text-shadow:0 1px 3px #000;
+  text-shadow:0 2px 4px #000;
   white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
 }
 
 .hub{
   position:absolute;
-  z-index:2;
+  z-index:4;
   left:50%;
   top:50%;
   transform:translate(-50%,-50%);
-  width:23%;
+  width:24%;
   aspect-ratio:1;
   border-radius:50%;
   background:
     radial-gradient(circle,#fff5cb,#d6a32e 65%,#6f4711);
   border:5px solid #fff0ae;
-  box-shadow:0 0 18px #0008;
+  box-shadow:0 0 20px #0009;
   display:grid;
   place-items:center;
+  text-align:center;
   color:#30200a;
   font-size:11px;
   font-weight:900;
-  text-align:center;
 }
+
+/* RESULT */
 
 .result{
   display:none;
-  background:#202c43;
-  border:1px solid #ffd76a77;
-  padding:16px;
-  border-radius:12px;
   text-align:center;
+  padding:18px;
   margin-top:12px;
+  border-radius:12px;
+  background:#202c43;
+  border:1px solid #ffd76a66;
 }
 
 .result strong{
   display:block;
   color:var(--gold);
-  font-size:28px;
-  margin:9px;
+  font-size:32px;
+  margin:10px;
 }
 
+/* LISTS */
+
 .item{
-  padding:10px 0;
-  border-bottom:1px solid #ffffff18;
+  padding:11px 0;
+  border-bottom:1px solid #ffffff15;
   font-size:13px;
   overflow-wrap:anywhere;
 }
@@ -328,7 +360,7 @@ button:disabled{
 .winner-box{
   border:1px solid #ffffff15;
   border-radius:10px;
-  padding:10px;
+  padding:11px;
   margin-top:10px;
 }
 
@@ -343,14 +375,26 @@ hr{
   margin:20px 0;
 }
 
+video{
+  width:100%;
+  max-width:450px;
+  display:block;
+  margin:10px auto;
+  border-radius:12px;
+  background:#000;
+}
+
 footer{
   text-align:center;
-  color:#8791ad;
-  padding:20px;
+  color:#7f89a5;
+  padding:25px;
   font-size:12px;
 }
 
-@media(max-width:680px){
+/* MOBILE */
+
+@media(max-width:700px){
+
   .cards{
     grid-template-columns:repeat(2,1fr);
   }
@@ -359,17 +403,26 @@ footer{
     grid-template-columns:1fr;
   }
 
+  .row{
+    flex-direction:column;
+  }
+
+  .wheelbox{
+    width:min(90vw,340px);
+  }
+
+}
+
+@media(max-width:400px){
+
+  .money{
+    font-size:24px;
+  }
+
   .card{
     padding:12px 5px;
   }
 
-  .money{
-    font-size:25px;
-  }
-
-  .row{
-    flex-direction:column;
-  }
 }
 </style>
 </head>
@@ -377,8 +430,15 @@ footer{
 <body>
 
 <header>
-  <div class="logo">✦ CODY KAIN SPIN ✦</div>
-  <p>Spin • Win • Celebrate</p>
+
+  <div class="logo">
+    ✦ CODY KAIN SPIN ✦
+  </div>
+
+  <p>
+    Spin • Win • Celebrate
+  </p>
+
 </header>
 
 <main class="wrap">
@@ -387,31 +447,33 @@ footer{
   Connect to your account to begin.
 </div>
 
+<!-- PRIZE CARDS -->
+
 <section class="cards">
 
-<div class="card">
-  DAILY 1ST
-  <div class="money" id="card1">$30</div>
-  <small>One winner</small>
-</div>
+  <div class="card">
+    DAILY 1ST
+    <div class="money" id="card1">$30</div>
+    <small>One winner</small>
+  </div>
 
-<div class="card">
-  DAILY 2ND
-  <div class="money" id="card2">$20</div>
-  <small>One winner</small>
-</div>
+  <div class="card">
+    DAILY 2ND
+    <div class="money" id="card2">$20</div>
+    <small>One winner</small>
+  </div>
 
-<div class="card">
-  DAILY 3RD
-  <div class="money" id="card3">$10</div>
-  <small>One winner</small>
-</div>
+  <div class="card">
+    DAILY 3RD
+    <div class="money" id="card3">$10</div>
+    <small>One winner</small>
+  </div>
 
-<div class="card">
-  WEEKLY
-  <div class="money" id="cardWeekly">$100</div>
-  <small>One winner</small>
-</div>
+  <div class="card">
+    WEEKLY
+    <div class="money" id="cardWeekly">$100</div>
+    <small>One winner</small>
+  </div>
 
 </section>
 
@@ -420,351 +482,528 @@ footer{
 
 <section class="panel" id="loginPanel">
 
-<h2>🔐 Player / Admin Login</h2>
+  <h2>🔐 Player / Admin Login</h2>
 
-<label>Player ID</label>
-<input
-  id="loginId"
-  autocomplete="username"
-  placeholder="Enter your assigned ID"
->
+  <label>Player ID</label>
 
-<label>Password</label>
-<input
-  id="loginPassword"
-  type="password"
-  autocomplete="current-password"
-  placeholder="Enter password"
->
+  <input
+    id="loginId"
+    autocomplete="username"
+    placeholder="Enter your assigned ID"
+  >
 
-<button class="primary" id="loginBtn">
-  LOGIN
-</button>
+  <label>Password</label>
 
-<div class="status" id="loginStatus">
-  Use the ID and password provided by your admin.
-</div>
+  <input
+    id="loginPassword"
+    type="password"
+    autocomplete="current-password"
+    placeholder="Enter password"
+  >
+
+  <button
+    class="primary"
+    id="loginBtn"
+  >
+    LOGIN
+  </button>
+
+  <div
+    class="status"
+    id="loginStatus"
+  >
+    Use the ID and password provided by your admin.
+  </div>
 
 </section>
 
 
 <!-- APPLICATION -->
 
-<section id="appPanel" class="hidden">
-
-<div class="panel">
-
-<div class="row">
-
-<div>
-<h2>🎮 Welcome</h2>
-<div id="who" class="muted"></div>
-</div>
-
-<button id="logoutBtn" class="secondary">
-LOG OUT
-</button>
-
-</div>
-
-</div>
-
-
-<div class="layout">
-
-<!-- WHEEL -->
-
-<div class="panel">
-
-<h2>🎡 Prize Wheel</h2>
-
-<label>Choose game</label>
-
-<select id="game">
-
-<option value="d1">
-Daily — 1st Prize ($30)
-</option>
-
-<option value="d2">
-Daily — 2nd Prize ($20)
-</option>
-
-<option value="d3">
-Daily — 3rd Prize ($10)
-</option>
-
-<option value="weekly">
-Weekly Jackpot ($100)
-</option>
-
-</select>
-
-
-<div class="wheelbox">
-
-<div class="pointer"></div>
-
-<div class="wheel" id="wheel"></div>
-
-<div class="hub">
-CODY<br>KAIN
-</div>
-
-</div>
-
-
-<div class="status" id="spinStatus">
-Choose a game.
-</div>
-
-<button class="primary" id="spinBtn">
-✦ SPIN THE WHEEL ✦
-</button>
-
-
-<div class="result" id="result">
-
-<div id="resultTitle"></div>
-
-<strong id="resultPrize"></strong>
-
-<div id="resultMessage"></div>
-
-</div>
-
-</div>
-
-
-<!-- RIGHT SIDE -->
-
-<aside>
-
-<!-- WINNERS -->
-
-<div class="panel">
-
-<h2>🏆 Winner History</h2>
-
-<button class="secondary" id="refreshWinners">
-REFRESH WINNERS
-</button>
-
-<div id="winners" class="status">
-Loading...
-</div>
-
-</div>
-
-
-<!-- ADMIN -->
-
-<div class="panel hidden" id="adminPanel">
-
-<h2>🛡️ ADMIN DASHBOARD</h2>
-
-
-<!-- PLAYER CREATE -->
-
-<h3>👤 Add Player</h3>
-
-<label>Player ID</label>
-<input
-  id="newId"
-  placeholder="e.g. CK1001"
+<section
+  id="appPanel"
+  class="hidden"
 >
 
-<label>Player Name</label>
-<input
-  id="newName"
-  placeholder="Player name"
->
+  <div class="panel">
 
-<label>Password</label>
-<input
-  id="newPassword"
-  type="password"
-  placeholder="At least 8 characters"
->
+    <div class="row">
 
-<button class="primary" id="addPlayerBtn">
-CREATE PLAYER
-</button>
+      <div>
+        <h2>🎮 Welcome</h2>
+        <div id="who" class="status"></div>
+      </div>
 
-<div id="adminStatus" class="status"></div>
+      <button
+        id="logoutBtn"
+        class="secondary"
+      >
+        LOG OUT
+      </button>
 
+    </div>
 
-<hr>
+  </div>
 
 
-<!-- DRAW SETTINGS -->
+  <div class="layout">
 
-<h3>⚙️ Daily Draw Settings</h3>
+    <!-- WHEEL -->
 
-<label>Daily Start Time</label>
-<input id="dailyStart" type="datetime-local">
+    <div class="panel">
 
-<label>Daily End Time</label>
-<input id="dailyEnd" type="datetime-local">
+      <h2>🎡 Prize Wheel</h2>
 
-<label>Daily 1st Reward</label>
-<input id="dailyReward1" type="number" value="30">
+      <label>
+        Choose game
+      </label>
 
-<label>Daily 2nd Reward</label>
-<input id="dailyReward2" type="number" value="20">
+      <select id="game">
 
-<label>Daily 3rd Reward</label>
-<input id="dailyReward3" type="number" value="10">
+        <option value="d1">
+          Daily — 1st Prize ($30)
+        </option>
 
-<label class="player-check">
-<input type="checkbox" id="dailyEnabled" checked>
-Daily draw enabled
-</label>
+        <option value="d2">
+          Daily — 2nd Prize ($20)
+        </option>
 
+        <option value="d3">
+          Daily — 3rd Prize ($10)
+        </option>
 
-<h3>🎡 Daily Players</h3>
+        <option value="weekly">
+          Weekly Jackpot ($100)
+        </option>
 
-<div id="dailyPlayers">
-Loading players...
-</div>
+      </select>
 
-<button class="primary" id="saveDailyBtn">
-SAVE DAILY SETTINGS
-</button>
 
+      <div class="wheelbox">
 
-<hr>
+        <div class="pointer"></div>
 
+        <div
+          class="wheel"
+          id="wheel"
+        ></div>
 
-<!-- WEEKLY SETTINGS -->
+        <div class="hub">
+          CODY<br>KAIN
+        </div>
 
-<h3>🏆 Weekly Draw Settings</h3>
+      </div>
 
-<label>Weekly Start Time</label>
-<input id="weeklyStart" type="datetime-local">
 
-<label>Weekly End Time</label>
-<input id="weeklyEnd" type="datetime-local">
+      <div
+        class="status"
+        id="spinStatus"
+      >
+        Choose a game.
+      </div>
 
-<label>Weekly Reward</label>
-<input id="weeklyReward" type="number" value="100">
 
-<label class="player-check">
-<input type="checkbox" id="weeklyEnabled" checked>
-Weekly draw enabled
-</label>
+      <button
+        class="primary"
+        id="spinBtn"
+      >
+        ✦ SPIN THE WHEEL ✦
+      </button>
 
 
-<h3>🎡 Weekly Players</h3>
+      <div
+        class="result"
+        id="result"
+      >
 
-<div id="weeklyPlayers">
-Loading players...
-</div>
+        <div id="resultTitle"></div>
 
-<button class="primary" id="saveWeeklyBtn">
-SAVE WEEKLY SETTINGS
-</button>
+        <strong id="resultPrize"></strong>
 
+        <div id="resultMessage"></div>
 
-<hr>
+      </div>
 
+    </div>
 
-<!-- OPEN CLOSE -->
 
-<h3>🎯 Draw Control</h3>
+    <!-- RIGHT SIDE -->
 
-<div class="row">
+    <aside>
 
-<button class="secondary" id="dailyBtn">
-OPEN DAILY
-</button>
+      <!-- WINNERS -->
 
-<button class="secondary" id="weeklyBtn">
-OPEN WEEKLY
-</button>
+      <div class="panel">
 
-</div>
+        <h2>🏆 Winner History</h2>
 
-<div class="row">
+        <button
+          class="secondary"
+          id="refreshWinners"
+        >
+          REFRESH WINNERS
+        </button>
 
-<button class="danger" id="closeDailyBtn">
-CLOSE DAILY
-</button>
+        <div
+          id="winners"
+          class="status"
+        >
+          Loading...
+        </div>
 
-<button class="danger" id="closeWeeklyBtn">
-CLOSE WEEKLY
-</button>
+      </div>
 
-</div>
 
-<div id="drawStatus" class="status"></div>
+      <!-- ADMIN -->
 
+      <div
+        class="panel hidden"
+        id="adminPanel"
+      >
 
-<hr>
+        <h2>🛡️ ADMIN DASHBOARD</h2>
 
 
-<!-- PLAYER ACCOUNTS -->
+        <!-- ADD PLAYER -->
 
-<h3>👥 Player Accounts</h3>
+        <h3>👤 Add Player</h3>
 
-<button class="secondary" id="refreshPlayers">
-REFRESH PLAYERS
-</button>
+        <label>
+          Player ID
+        </label>
 
-<div id="players" class="status"></div>
+        <input
+          id="newId"
+          placeholder="e.g. CK1001"
+        >
 
+        <label>
+          Player Name
+        </label>
 
-<hr>
+        <input
+          id="newName"
+          placeholder="Player name"
+        >
 
+        <label>
+          Password
+        </label>
 
-<!-- WINNER SUMMARY -->
+        <input
+          id="newPassword"
+          type="password"
+          placeholder="At least 8 characters"
+        >
 
-<h3>🏆 Separate Winner Results</h3>
+        <button
+          class="primary"
+          id="addPlayerBtn"
+        >
+          CREATE PLAYER
+        </button>
 
-<button class="secondary" id="refreshSummary">
-REFRESH WINNER RESULTS
-</button>
+        <div
+          id="adminStatus"
+          class="status"
+        ></div>
 
-<div id="summary">
 
-<div class="winner-box">
-<h4>🥇 Daily 1st</h4>
-<div id="daily1Winners">No winner yet.</div>
-</div>
+        <hr>
 
-<div class="winner-box">
-<h4>🥈 Daily 2nd</h4>
-<div id="daily2Winners">No winner yet.</div>
-</div>
 
-<div class="winner-box">
-<h4>🥉 Daily 3rd</h4>
-<div id="daily3Winners">No winner yet.</div>
-</div>
+        <!-- DAILY -->
 
-<div class="winner-box">
-<h4>🏆 Weekly</h4>
-<div id="weeklyWinners">No winner yet.</div>
-</div>
+        <h3>
+          ⚙️ Daily Draw Settings
+        </h3>
 
-</div>
+        <label>
+          Daily Start Time
+        </label>
 
-</div>
+        <input
+          id="dailyStart"
+          type="datetime-local"
+        >
 
-</aside>
+        <label>
+          Daily End Time
+        </label>
 
-</div>
+        <input
+          id="dailyEnd"
+          type="datetime-local"
+        >
+
+        <label>
+          Daily 1st Reward
+        </label>
+
+        <input
+          id="dailyReward1"
+          type="number"
+          value="30"
+        >
+
+        <label>
+          Daily 2nd Reward
+        </label>
+
+        <input
+          id="dailyReward2"
+          type="number"
+          value="20"
+        >
+
+        <label>
+          Daily 3rd Reward
+        </label>
+
+        <input
+          id="dailyReward3"
+          type="number"
+          value="10"
+        >
+
+        <label class="player-check">
+
+          <input
+            type="checkbox"
+            id="dailyEnabled"
+            checked
+          >
+
+          Daily draw enabled
+
+        </label>
+
+
+        <h3>
+          🎡 Daily Players
+        </h3>
+
+        <div id="dailyPlayers">
+          Loading players...
+        </div>
+
+        <button
+          class="primary"
+          id="saveDailyBtn"
+        >
+          SAVE DAILY SETTINGS
+        </button>
+
+
+        <hr>
+
+
+        <!-- WEEKLY -->
+
+        <h3>
+          🏆 Weekly Draw Settings
+        </h3>
+
+        <label>
+          Weekly Start Time
+        </label>
+
+        <input
+          id="weeklyStart"
+          type="datetime-local"
+        >
+
+        <label>
+          Weekly End Time
+        </label>
+
+        <input
+          id="weeklyEnd"
+          type="datetime-local"
+        >
+
+        <label>
+          Weekly Reward
+        </label>
+
+        <input
+          id="weeklyReward"
+          type="number"
+          value="100"
+        >
+
+        <label class="player-check">
+
+          <input
+            type="checkbox"
+            id="weeklyEnabled"
+            checked
+          >
+
+          Weekly draw enabled
+
+        </label>
+
+
+        <h3>
+          🎡 Weekly Players
+        </h3>
+
+        <div id="weeklyPlayers">
+          Loading players...
+        </div>
+
+        <button
+          class="primary"
+          id="saveWeeklyBtn"
+        >
+          SAVE WEEKLY SETTINGS
+        </button>
+
+
+        <hr>
+
+
+        <!-- DRAW CONTROL -->
+
+        <h3>
+          🎯 Draw Control
+        </h3>
+
+        <div class="row">
+
+          <button
+            class="secondary"
+            id="dailyBtn"
+          >
+            OPEN DAILY
+          </button>
+
+          <button
+            class="secondary"
+            id="weeklyBtn"
+          >
+            OPEN WEEKLY
+          </button>
+
+        </div>
+
+        <div class="row">
+
+          <button
+            class="danger"
+            id="closeDailyBtn"
+          >
+            CLOSE DAILY
+          </button>
+
+          <button
+            class="danger"
+            id="closeWeeklyBtn"
+          >
+            CLOSE WEEKLY
+          </button>
+
+        </div>
+
+        <div
+          id="drawStatus"
+          class="status"
+        ></div>
+
+
+        <hr>
+
+
+        <!-- PLAYER ACCOUNTS -->
+
+        <h3>
+          👥 Player Accounts
+        </h3>
+
+        <button
+          class="secondary"
+          id="refreshPlayers"
+        >
+          REFRESH PLAYERS
+        </button>
+
+        <div
+          id="players"
+          class="status"
+        ></div>
+
+
+        <hr>
+
+
+        <!-- SUMMARY -->
+
+        <h3>
+          🏆 Separate Winner Results
+        </h3>
+
+        <button
+          class="secondary"
+          id="refreshSummary"
+        >
+          REFRESH WINNER RESULTS
+        </button>
+
+
+        <div id="summary">
+
+          <div class="winner-box">
+            <h4>🥇 Daily 1st</h4>
+            <div id="daily1Winners">
+              No winner yet.
+            </div>
+          </div>
+
+          <div class="winner-box">
+            <h4>🥈 Daily 2nd</h4>
+            <div id="daily2Winners">
+              No winner yet.
+            </div>
+          </div>
+
+          <div class="winner-box">
+            <h4>🥉 Daily 3rd</h4>
+            <div id="daily3Winners">
+              No winner yet.
+            </div>
+          </div>
+
+          <div class="winner-box">
+            <h4>🏆 Weekly</h4>
+            <div id="weeklyWinners">
+              No winner yet.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+  </div>
 
 </section>
 
 </main>
 
+
 <footer>
-© CODY KAIN SPIN · Play fairly
+  © CODY KAIN SPIN · Play fairly
 </footer>
 
 
 <script>
+
+/* =========================
+   SUPABASE CONNECTION
+========================= */
 
 const FUNCTION_URL =
 "https://vrpmzvifpzlsulmzxvdc.supabase.co/functions/v1/cody-kain-spin";
@@ -772,7 +1011,13 @@ const FUNCTION_URL =
 const PUBLISHABLE_KEY =
 "sb_publishable_jon3lwQ_FMuPSnqvVNlMWw_W1o6agbn";
 
-const $ = id => document.getElementById(id);
+
+/* =========================
+   HELPERS
+========================= */
+
+const $ = id =>
+  document.getElementById(id);
 
 let token = "";
 let player = null;
@@ -781,7 +1026,20 @@ let rotation = 0;
 let allPlayers = [];
 
 
-/* ---------------- API ---------------- */
+function setStatus(id,message){
+
+  const element = $(id);
+
+  if(element){
+    element.textContent = message;
+  }
+
+}
+
+
+/* =========================
+   API
+========================= */
 
 async function api(
   action,
@@ -799,46 +1057,69 @@ async function api(
     ...extra
   };
 
-  if(needsLogin && token){
+  if(needsLogin){
+
+    if(!token){
+      throw new Error(
+        "Please log in first."
+      );
+    }
+
     body.token = token;
   }
 
-  const response = await fetch(
-    FUNCTION_URL,
-    {
-      method:"POST",
-      headers,
-      body:JSON.stringify(body)
-    }
-  );
+  const response =
+    await fetch(
+      FUNCTION_URL,
+      {
+        method:"POST",
+        headers,
+        body:JSON.stringify(body)
+      }
+    );
 
   let data = {};
 
   try{
     data = await response.json();
-  }catch{}
+  }catch{
+    data = {};
+  }
 
   if(!response.ok){
+
     throw new Error(
       data.error ||
       `Request failed (${response.status})`
     );
+
   }
 
   return data;
 }
 
 
-/* ---------------- STATUS ---------------- */
-
-function setStatus(id,msg){
-  $(id).textContent = msg;
-}
-
-
-/* ---------------- LOGIN ---------------- */
+/* =========================
+   LOGIN
+========================= */
 
 async function login(){
+
+  const id =
+    $("loginId").value.trim();
+
+  const password =
+    $("loginPassword").value;
+
+  if(!id || !password){
+
+    setStatus(
+      "loginStatus",
+      "Please enter your ID and password."
+    );
+
+    return;
+  }
 
   $("loginBtn").disabled = true;
 
@@ -849,39 +1130,49 @@ async function login(){
 
   try{
 
-    const data = await api(
-      "login",
-      {
-        id:$("loginId").value.trim(),
-        password:$("loginPassword").value
-      },
-      false
-    );
+    const data =
+      await api(
+        "login",
+        {
+          id,
+          password
+        },
+        false
+      );
+
+    if(!data.token || !data.player){
+
+      throw new Error(
+        "Invalid login response."
+      );
+
+    }
 
     token = data.token;
     player = data.player;
-
-    if(!token || !player){
-      throw new Error(
-        "Login response missing player or session."
-      );
-    }
 
     showApp();
 
     await refreshWinners();
 
     if(player.role === "admin"){
+
       await refreshPlayers();
+
       await loadDrawSettings();
+
       await refreshSummary();
+
     }
 
-  }catch(e){
+  }catch(error){
+
+    console.error(error);
 
     setStatus(
       "loginStatus",
-      e.message || "Login failed."
+      error.message ||
+      "Login failed."
     );
 
   }finally{
@@ -889,10 +1180,13 @@ async function login(){
     $("loginBtn").disabled = false;
 
   }
+
 }
 
 
-/* ---------------- SHOW APP ---------------- */
+/* =========================
+   SHOW APP
+========================= */
 
 function showApp(){
 
@@ -903,7 +1197,7 @@ function showApp(){
     .classList.remove("hidden");
 
   $("who").textContent =
-    `${player.display_name || player.player_code} · ${player.role.toUpperCase()}`;
+    `${player.display_name || player.player_code} · ${String(player.role).toUpperCase()}`;
 
   $("adminPanel")
     .classList.toggle(
@@ -917,7 +1211,9 @@ function showApp(){
 }
 
 
-/* ---------------- LOGOUT ---------------- */
+/* =========================
+   LOGOUT
+========================= */
 
 function logout(){
 
@@ -933,12 +1229,14 @@ function logout(){
   $("loginPassword").value = "";
 
   $("notice").textContent =
-    "Please log in.";
+    "Connect to your account to begin.";
 
 }
 
 
-/* ---------------- WINNERS ---------------- */
+/* =========================
+   WINNERS
+========================= */
 
 async function refreshWinners(){
 
@@ -988,21 +1286,24 @@ async function refreshWinners(){
       row.textContent =
         `${name} · ${type} · ${position} · ${w.reward_points} points`;
 
-      $("winners").appendChild(row);
+      $("winners")
+        .appendChild(row);
 
     });
 
-  }catch(e){
+  }catch(error){
 
     $("winners").textContent =
-      e.message;
+      error.message;
 
   }
 
 }
 
 
-/* ---------------- PLAYERS ---------------- */
+/* =========================
+   PLAYERS
+========================= */
 
 async function refreshPlayers(){
 
@@ -1038,48 +1339,52 @@ async function refreshPlayers(){
 
       if(p.role !== "admin"){
 
-        const btn =
+        const button =
           document.createElement("button");
 
-        btn.className =
+        button.className =
           "secondary";
 
-        btn.textContent =
+        button.textContent =
           p.is_active
             ? "DISABLE"
             : "ENABLE";
 
-        btn.onclick = async()=>{
+        button.onclick =
+          async()=>{
 
-          btn.disabled = true;
+            button.disabled = true;
 
-          try{
+            try{
 
-            await api(
-              "toggle_player",
-              {player_id:p.id}
-            );
+              await api(
+                "toggle_player",
+                {
+                  player_id:p.id
+                }
+              );
 
-            await refreshPlayers();
+              await refreshPlayers();
 
-          }catch(e){
+            }catch(error){
 
-            setStatus(
-              "adminStatus",
-              e.message
-            );
+              setStatus(
+                "adminStatus",
+                error.message
+              );
 
-            btn.disabled = false;
+              button.disabled = false;
 
-          }
+            }
 
-        };
+          };
 
-        row.appendChild(btn);
+        row.appendChild(button);
 
       }
 
-      $("players").appendChild(row);
+      $("players")
+        .appendChild(row);
 
     });
 
@@ -1090,28 +1395,27 @@ async function refreshPlayers(){
 
     }
 
-  }catch(e){
+  }catch(error){
 
     $("players").textContent =
-      e.message;
+      error.message;
 
   }
 
 }
 
 
-/* ---------------- PLAYER SELECTORS ---------------- */
+/* =========================
+   PLAYER SELECTORS
+========================= */
 
 function renderPlayerSelectors(){
 
-  const dailyBox =
-    $("dailyPlayers");
+  $("dailyPlayers")
+    .replaceChildren();
 
-  const weeklyBox =
-    $("weeklyPlayers");
-
-  dailyBox.replaceChildren();
-  weeklyBox.replaceChildren();
+  $("weeklyPlayers")
+    .replaceChildren();
 
   const players =
     allPlayers.filter(
@@ -1122,14 +1426,13 @@ function renderPlayerSelectors(){
 
   if(!players.length){
 
-    dailyBox.textContent =
+    $("dailyPlayers").textContent =
       "No active players.";
 
-    weeklyBox.textContent =
+    $("weeklyPlayers").textContent =
       "No active players.";
 
     return;
-
   }
 
   players.forEach(p=>{
@@ -1140,14 +1443,21 @@ function renderPlayerSelectors(){
     daily.className =
       "player-check";
 
-    const dcheck =
+    const dailyCheck =
       document.createElement("input");
 
-    dcheck.type = "checkbox";
-    dcheck.value = p.id;
-    dcheck.dataset.daily = "1";
+    dailyCheck.type =
+      "checkbox";
 
-    daily.appendChild(dcheck);
+    dailyCheck.value =
+      p.id;
+
+    dailyCheck.dataset.daily =
+      "1";
+
+    daily.appendChild(
+      dailyCheck
+    );
 
     daily.append(
       document.createTextNode(
@@ -1155,7 +1465,8 @@ function renderPlayerSelectors(){
       )
     );
 
-    dailyBox.appendChild(daily);
+    $("dailyPlayers")
+      .appendChild(daily);
 
 
     const weekly =
@@ -1164,14 +1475,21 @@ function renderPlayerSelectors(){
     weekly.className =
       "player-check";
 
-    const wcheck =
+    const weeklyCheck =
       document.createElement("input");
 
-    wcheck.type = "checkbox";
-    wcheck.value = p.id;
-    wcheck.dataset.weekly = "1";
+    weeklyCheck.type =
+      "checkbox";
 
-    weekly.appendChild(wcheck);
+    weeklyCheck.value =
+      p.id;
+
+    weeklyCheck.dataset.weekly =
+      "1";
+
+    weekly.appendChild(
+      weeklyCheck
+    );
 
     weekly.append(
       document.createTextNode(
@@ -1179,18 +1497,41 @@ function renderPlayerSelectors(){
       )
     );
 
-    weeklyBox.appendChild(weekly);
+    $("weeklyPlayers")
+      .appendChild(weekly);
 
   });
 
 }
 
 
-/* ---------------- ADD PLAYER ---------------- */
+/* =========================
+   ADD PLAYER
+========================= */
 
 async function addPlayer(){
 
-  $("addPlayerBtn").disabled = true;
+  const id =
+    $("newId").value.trim();
+
+  const name =
+    $("newName").value.trim();
+
+  const password =
+    $("newPassword").value;
+
+  if(!id || !name || !password){
+
+    setStatus(
+      "adminStatus",
+      "Please fill all player fields."
+    );
+
+    return;
+  }
+
+  $("addPlayerBtn").disabled =
+    true;
 
   try{
 
@@ -1198,16 +1539,15 @@ async function addPlayer(){
       await api(
         "add_player",
         {
-          id:$("newId").value.trim(),
-          name:$("newName").value.trim(),
-          password:$("newPassword").value
+          id,
+          name,
+          password
         }
       );
 
     setStatus(
       "adminStatus",
-      "Player created: " +
-      data.player.player_code
+      `Player created: ${data.player.player_code}`
     );
 
     $("newId").value = "";
@@ -1216,27 +1556,32 @@ async function addPlayer(){
 
     await refreshPlayers();
 
-  }catch(e){
+  }catch(error){
 
     setStatus(
       "adminStatus",
-      e.message
+      error.message
     );
 
   }finally{
 
-    $("addPlayerBtn").disabled = false;
+    $("addPlayerBtn").disabled =
+      false;
 
   }
 
 }
 
 
-/* ---------------- DATETIME ---------------- */
+/* =========================
+   DATE TIME
+========================= */
 
 function toISOStringOrNull(value){
 
-  if(!value) return null;
+  if(!value){
+    return null;
+  }
 
   const date =
     new Date(value);
@@ -1246,39 +1591,44 @@ function toISOStringOrNull(value){
   }
 
   return date.toISOString();
-
 }
+
 
 function toLocalInput(value){
 
-  if(!value) return "";
+  if(!value){
+    return "";
+  }
 
-  const d =
+  const date =
     new Date(value);
 
-  if(isNaN(d.getTime())){
+  if(isNaN(date.getTime())){
     return "";
   }
 
   const pad =
-    n => String(n).padStart(2,"0");
+    n =>
+      String(n).padStart(2,"0");
 
   return (
-    d.getFullYear() +
+    date.getFullYear() +
     "-" +
-    pad(d.getMonth()+1) +
+    pad(date.getMonth()+1) +
     "-" +
-    pad(d.getDate()) +
+    pad(date.getDate()) +
     "T" +
-    pad(d.getHours()) +
+    pad(date.getHours()) +
     ":" +
-    pad(d.getMinutes())
+    pad(date.getMinutes())
   );
 
 }
 
 
-/* ---------------- LOAD SETTINGS ---------------- */
+/* =========================
+   DRAW SETTINGS
+========================= */
 
 async function loadDrawSettings(){
 
@@ -1326,10 +1676,12 @@ async function loadDrawSettings(){
         .querySelectorAll(
           "[data-daily='1']"
         )
-        .forEach(c=>{
-          c.checked =
-            selected.includes(c.value);
+        .forEach(check=>{
+          check.checked =
+            selected.includes(check.value);
         });
+
+      updateCards();
 
     }
 
@@ -1358,18 +1710,20 @@ async function loadDrawSettings(){
         .querySelectorAll(
           "[data-weekly='1']"
         )
-        .forEach(c=>{
-          c.checked =
-            selected.includes(c.value);
+        .forEach(check=>{
+          check.checked =
+            selected.includes(check.value);
         });
+
+      updateCards();
 
     }
 
-  }catch(e){
+  }catch(error){
 
     setStatus(
       "adminStatus",
-      e.message
+      error.message
     );
 
   }
@@ -1377,99 +1731,138 @@ async function loadDrawSettings(){
 }
 
 
-/* ---------------- SAVE DAILY ---------------- */
+/* =========================
+   UPDATE CARDS
+========================= */
+
+function updateCards(){
+
+  $("card1").textContent =
+    "$" +
+    (Number($("dailyReward1").value) || 0);
+
+  $("card2").textContent =
+    "$" +
+    (Number($("dailyReward2").value) || 0);
+
+  $("card3").textContent =
+    "$" +
+    (Number($("dailyReward3").value) || 0);
+
+  $("cardWeekly").textContent =
+    "$" +
+    (Number($("weeklyReward").value) || 0);
+
+}
+
+
+/* =========================
+   SAVE DAILY
+========================= */
 
 async function saveDailySettings(){
 
-  $("saveDailyBtn").disabled = true;
+  $("saveDailyBtn").disabled =
+    true;
 
   try{
 
     const playerIds =
-      [...document.querySelectorAll(
-        "[data-daily='1']:checked"
-      )].map(
-        c => c.value
+      [
+        ...document.querySelectorAll(
+          "[data-daily='1']:checked"
+        )
+      ].map(
+        check => check.value
       );
 
-    const data =
-      await api(
-        "update_draw_settings",
-        {
-          type:"daily",
-          is_enabled:
-            $("dailyEnabled").checked,
+    await api(
+      "update_draw_settings",
+      {
+        type:"daily",
 
-          starts_at:
-            toISOStringOrNull(
-              $("dailyStart").value
-            ),
+        is_enabled:
+          $("dailyEnabled").checked,
 
-          ends_at:
-            toISOStringOrNull(
-              $("dailyEnd").value
-            ),
+        starts_at:
+          toISOStringOrNull(
+            $("dailyStart").value
+          ),
 
-          reward_1:
-            Number(
-              $("dailyReward1").value
-            ),
+        ends_at:
+          toISOStringOrNull(
+            $("dailyEnd").value
+          ),
 
-          reward_2:
-            Number(
-              $("dailyReward2").value
-            ),
+        reward_1:
+          Number(
+            $("dailyReward1").value
+          ),
 
-          reward_3:
-            Number(
-              $("dailyReward3").value
-            ),
+        reward_2:
+          Number(
+            $("dailyReward2").value
+          ),
 
-          player_ids:
-            playerIds
-        }
-      );
+        reward_3:
+          Number(
+            $("dailyReward3").value
+          ),
+
+        player_ids:
+          playerIds
+      }
+    );
+
+    updateCards();
 
     setStatus(
       "adminStatus",
       `Daily settings saved. ${playerIds.length} player(s) selected.`
     );
 
-  }catch(e){
+  }catch(error){
 
     setStatus(
       "adminStatus",
-      e.message
+      error.message
     );
 
   }finally{
 
-    $("saveDailyBtn").disabled = false;
+    $("saveDailyBtn").disabled =
+      false;
 
   }
 
 }
 
 
-/* ---------------- SAVE WEEKLY ---------------- */
+/* =========================
+   SAVE WEEKLY
+========================= */
 
 async function saveWeeklySettings(){
 
-  $("saveWeeklyBtn").disabled = true;
+  $("saveWeeklyBtn").disabled =
+    true;
 
   try{
 
     const playerIds =
-      [...document.querySelectorAll(
-        "[data-weekly='1']:checked"
-      )].map(
-        c => c.value
+      [
+        ...document.querySelectorAll(
+          "[data-weekly='1']:checked"
+        )
+      ].map(
+        check => check.value
       );
 
     await api(
       "update_draw_settings",
       {
         type:"weekly",
+
         is_enabled:
           $("weeklyEnabled").checked,
 
@@ -1493,28 +1886,33 @@ async function saveWeeklySettings(){
       }
     );
 
+    updateCards();
+
     setStatus(
       "adminStatus",
       `Weekly settings saved. ${playerIds.length} player(s) selected.`
     );
 
-  }catch(e){
+  }catch(error){
 
     setStatus(
       "adminStatus",
-      e.message
+      error.message
     );
 
   }finally{
 
-    $("saveWeeklyBtn").disabled = false;
+    $("saveWeeklyBtn").disabled =
+      false;
 
   }
 
 }
 
 
-/* ---------------- DRAW CONTROL ---------------- */
+/* =========================
+   OPEN DRAW
+========================= */
 
 async function openDraw(type){
 
@@ -1547,11 +1945,11 @@ async function openDraw(type){
       `New ${label} draw opened. Draw number: ${data.draw.draw_number}`
     );
 
-  }catch(e){
+  }catch(error){
 
     setStatus(
       "drawStatus",
-      e.message
+      error.message
     );
 
   }finally{
@@ -1564,7 +1962,9 @@ async function openDraw(type){
 }
 
 
-/* ---------------- CLOSE DRAW ---------------- */
+/* =========================
+   CLOSE DRAW
+========================= */
 
 async function closeDraw(type){
 
@@ -1594,13 +1994,14 @@ async function closeDraw(type){
     );
 
     await refreshWinners();
+
     await refreshSummary();
 
-  }catch(e){
+  }catch(error){
 
     setStatus(
       "drawStatus",
-      e.message
+      error.message
     );
 
   }
@@ -1608,7 +2009,9 @@ async function closeDraw(type){
 }
 
 
-/* ---------------- WINNER SUMMARY ---------------- */
+/* =========================
+   WINNER SUMMARY
+========================= */
 
 async function refreshSummary(){
 
@@ -1639,29 +2042,35 @@ async function refreshSummary(){
       data.weekly
     );
 
-  }catch(e){
+  }catch(error){
 
     $("daily1Winners").textContent =
-      e.message;
+      error.message;
 
   }
 
 }
 
 
-function renderWinnerGroup(id,list){
+function renderWinnerGroup(
+  id,
+  list
+){
 
-  const box = $(id);
+  const box =
+    $(id);
 
   box.replaceChildren();
 
-  if(!list || !list.length){
+  if(
+    !list ||
+    !list.length
+  ){
 
     box.textContent =
       "No winner yet.";
 
     return;
-
   }
 
   list.forEach(w=>{
@@ -1687,7 +2096,9 @@ function renderWinnerGroup(id,list){
 }
 
 
-/* ---------------- WHEEL ---------------- */
+/* =========================
+   WHEEL LABELS
+========================= */
 
 function makeLabels(){
 
@@ -1708,21 +2119,21 @@ function makeLabels(){
   ];
 
   labels.forEach(
-    (name,i)=>{
+    (name,index)=>{
 
-      const el =
+      const element =
         document.createElement("div");
 
-      el.className =
+      element.className =
         "wlabel";
 
-      el.textContent =
+      element.textContent =
         name;
 
-      el.style.transform =
-        `rotate(${i*45+22.5}deg)`;
+      element.style.transform =
+        `rotate(${index * 45 + 22.5}deg)`;
 
-      wheel.appendChild(el);
+      wheel.appendChild(element);
 
     }
   );
@@ -1730,7 +2141,9 @@ function makeLabels(){
 }
 
 
-/* ---------------- SPEECH ---------------- */
+/* =========================
+   VOICE
+========================= */
 
 function say(text){
 
@@ -1742,20 +2155,24 @@ function say(text){
 
   speechSynthesis.cancel();
 
-  const u =
+  const utterance =
     new SpeechSynthesisUtterance(
       text
     );
 
-  u.rate = 1.05;
-  u.pitch = 1.1;
+  utterance.rate = 1.05;
+  utterance.pitch = 1.1;
 
-  speechSynthesis.speak(u);
+  speechSynthesis.speak(
+    utterance
+  );
 
 }
 
 
-/* ---------------- SPIN ---------------- */
+/* =========================
+   SPIN
+========================= */
 
 async function spin(){
 
@@ -1785,12 +2202,28 @@ async function spin(){
 
   const amount =
     game === "weekly"
-      ? "$100"
+      ? "$" + (
+          Number(
+            $("weeklyReward").value
+          ) || 100
+        )
       : game === "d1"
-        ? "$30"
+        ? "$" + (
+            Number(
+              $("dailyReward1").value
+            ) || 30
+          )
         : game === "d2"
-          ? "$20"
-          : "$10";
+          ? "$" + (
+              Number(
+                $("dailyReward2").value
+              ) || 20
+            )
+          : "$" + (
+              Number(
+                $("dailyReward3").value
+              ) || 10
+            );
 
   busy = true;
 
@@ -1818,11 +2251,11 @@ async function spin(){
         }
       );
 
-  }catch(e){
+  }catch(error){
 
     setStatus(
       "spinStatus",
-      e.message
+      error.message
     );
 
     busy = false;
@@ -1831,7 +2264,6 @@ async function spin(){
     $("game").disabled = false;
 
     return;
-
   }
 
   if(outcome.error){
@@ -1847,7 +2279,6 @@ async function spin(){
     $("game").disabled = false;
 
     return;
-
   }
 
   say(
@@ -1860,13 +2291,14 @@ async function spin(){
   );
 
   rotation +=
-    360 * 6 +
+    2160 +
     Math.floor(
       Math.random() * 360
     );
 
   $("wheel").style.transform =
     `rotate(${rotation}deg)`;
+
 
   setTimeout(
     async()=>{
@@ -1930,7 +2362,9 @@ async function spin(){
 }
 
 
-/* ---------------- EVENTS ---------------- */
+/* =========================
+   EVENTS
+========================= */
 
 $("loginBtn")
   .addEventListener(
@@ -1941,10 +2375,12 @@ $("loginBtn")
 $("loginPassword")
   .addEventListener(
     "keydown",
-    e=>{
-      if(e.key === "Enter"){
+    event=>{
+
+      if(event.key === "Enter"){
         login();
       }
+
     }
   );
 
@@ -2021,108 +2457,29 @@ $("spinBtn")
   );
 
 
-/* ---------------- START ---------------- */
+/* UPDATE REWARD CARDS */
+
+[
+  "dailyReward1",
+  "dailyReward2",
+  "dailyReward3",
+  "weeklyReward"
+].forEach(id=>{
+
+  $(id).addEventListener(
+    "input",
+    updateCards
+  );
+
+});
+
+
+/* =========================
+   START
+========================= */
 
 makeLabels();
-  <!-- SPIN VIDEO RECORDING -->
-<div id="videoRecorder" class="hidden">
-  <video id="spinVideo" autoplay muted playsinline></video>
-  <div class="row">
-    <button id="startVideoBtn" class="secondary">START RECORDING</button>
-    <button id="stopVideoBtn" class="danger" disabled>STOP RECORDING</button>
-  </div>
-  <div id="videoStatus" class="status"></div>
-</div>
-
-<script>
-let mediaRecorder = null;
-let recordedChunks = [];
-
-async function startSpinRecording(){
-
-  try{
-
-    const stream = await navigator.mediaDevices.getUserMedia({
-      video:true,
-      audio:true
-    });
-
-    $("spinVideo").srcObject = stream;
-    recordedChunks = [];
-
-    mediaRecorder = new MediaRecorder(stream);
-
-    mediaRecorder.ondataavailable = e => {
-      if(e.data.size > 0){
-        recordedChunks.push(e.data);
-      }
-    };
-
-    mediaRecorder.onstop = async () => {
-
-      stream.getTracks().forEach(track => track.stop());
-
-      const blob = new Blob(
-        recordedChunks,
-        {type:"video/webm"}
-      );
-
-      setStatus(
-        "videoStatus",
-        "Recording complete."
-      );
-
-      console.log("Video ready:", blob.size);
-    };
-
-    mediaRecorder.start();
-
-    $("startVideoBtn").disabled = true;
-    $("stopVideoBtn").disabled = false;
-
-    setStatus(
-      "videoStatus",
-      "Recording started..."
-    );
-
-  }catch(e){
-
-    setStatus(
-      "videoStatus",
-      "Camera/microphone permission required."
-    );
-
-  }
-}
-
-function stopSpinRecording(){
-
-  if(
-    mediaRecorder &&
-    mediaRecorder.state !== "inactive"
-  ){
-
-    mediaRecorder.stop();
-
-    $("startVideoBtn").disabled = false;
-    $("stopVideoBtn").disabled = true;
-
-  }
-
-}
-
-$("startVideoBtn")
-  .addEventListener(
-    "click",
-    startSpinRecording
-  );
-
-$("stopVideoBtn")
-  .addEventListener(
-    "click",
-    stopSpinRecording
-  );
-</script>
+updateCards();
 
 </script>
 
